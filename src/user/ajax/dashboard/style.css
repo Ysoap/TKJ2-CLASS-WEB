@@ -1,0 +1,26 @@
+body {
+  background-color: #D6E4E5;
+  color: #497174;
+}
+
+header .container {
+  background-color: #EB6440;
+}
+
+.profile-picture {
+  aspect-ratio: 1;
+}
+
+.calendar {
+  aspect-ratio: 1;
+  background-color: #EFF5F5;
+}
+
+.data-d {
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  background-color: #EFF5F5;
+}
+.data-d i {
+  font-size: 6rem;
+}/*# sourceMappingURL=style.css.map */

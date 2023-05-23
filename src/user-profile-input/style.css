@@ -1,0 +1,39 @@
+.container {
+  margin-top: 20em;
+  padding: 5em;
+  box-sizing: border-box;
+  width: 20em;
+}
+.container input {
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+}
+.container .profile-picture {
+  width: 5px;
+}
+.container label {
+  transform: translateY(-20px);
+  font-size: 0.8em;
+  transition: transform 0.3s ease-in-out;
+}
+.container .profile-picture-label {
+  transform: translateY(0px) !important;
+}
+.container input:focus + label {
+  transform: translateY(-40px);
+  transition: transform 0.3s ease-in-out;
+}
+.container input:focus {
+  outline: none;
+}
+.container .img-container {
+  width: 100%;
+  height: auto;
+}
+.container .img-container #imgPreview {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=style.css.map */

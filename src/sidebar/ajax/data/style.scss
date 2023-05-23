@@ -1,0 +1,145 @@
+h1 {
+  margin-left: 4px;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+.email {
+  word-wrap: break-word;
+}
+.row {
+  background-color: white;
+  box-shadow: #d4d6d4 -5px 5px 15px 5px;
+  margin: 0px;
+  flex-direction: column;
+  font-size: 15px;
+}
+.row :nth-child(16) {
+  display: flex !important;
+}
+.data-container {
+  display: none;
+}
+.data-container :nth-child(even) {
+  display: flex !important;
+}
+.aksi button {
+  display: flex !important;
+}
+
+.id {
+  width: 5%;
+}
+.id,
+.nama,
+.kelas,
+.noabsen,
+.umur,
+.email,
+.nohp,
+.alamat,
+.aksi {
+  display: flex;
+  justify-content: center;
+}
+.container-fluid {
+  width: 10;
+}
+/* .nohp {
+  padding: 2em;
+  width: 10%;
+} */
+.nohp {
+  width: 100%;
+}
+/* .noabsen {
+  width: 20%;
+} */
+a {
+  text-decoration: none;
+}
+.alert-container {
+  position: fixed;
+  top: 0px;
+}
+.loader{
+  width: 15%;
+}
+@media (min-width: 576px) {
+  .sidebar {
+    transition: 0.5s;
+    width: 20em;
+    height: 100%;
+  }
+  .sidebar.close {
+    transition: 0.5s;
+    width: 5% !important;
+    height: 100%;
+  }
+  .close :nth-child(3) {
+    opacity: 100%;
+  }
+  .row {
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+  }
+  /* main {
+    margin-left: 100px;
+  } */
+  .nohp {
+    width: 10%;
+  }
+  .modal-content {
+    display: block;
+    form {
+    display: block !important;
+    .modal-body{
+      display: block;
+    }
+    .modal-footer > *{
+      display: flex !important;
+    }
+  }
+  }
+  .modal-header > * {
+    display: block !important;
+  }
+  #row :nth-child(even) {
+    display: none;
+  }
+  .data-container {
+    display: flex;
+  }
+  .pagination {
+    padding-left: 6em;
+    margin-right: 6em;
+  }
+  .loader{
+ 
+    width: 2em;
+    /* right: 0px; */
+    display: none;
+  }
+}
+.dashboard {
+  margin-top: 8em;
+}
+.nav-child-closed {
+  opacity: 0%;
+  transition: 0.3s;
+}
+.dashboard span,
+.data span,
+.img span,
+.setting span {
+  transition: 0.3s;
+}
+@media (min-width: 576px) {
+  main{
+    margin-left: 5em;
+  }
+  
+}

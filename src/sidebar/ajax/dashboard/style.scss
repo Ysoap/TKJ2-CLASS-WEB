@@ -1,0 +1,42 @@
+$grey-light:#9BA4B5;
+$grey:#D6E4E5;
+$grey-darker:#EFF5F5;
+$grey-darkest:#497174;
+$orange : #EB6440;
+$white:#d6d6d6;
+body{
+    background-color: $grey;
+    color: $grey-darkest;
+}
+header{
+    .container{
+    background-color: $orange;}
+}
+.profile-picture{
+    // width: 25em;
+    // height: 10vh;
+    // margin-top: 15vh;
+    // background-color: $grey-darkest;
+    // color: $white;
+    // border-color: $grey;
+    aspect-ratio: 1;
+}
+.absensi-container{
+    // .col{
+    //     aspect-ratio: 1;
+    //     background-color: $grey-darker;
+    // }
+}
+.data-d{
+    aspect-ratio: 1;
+    box-sizing: border-box;
+        background-color: $grey-darker;
+        i{
+            font-size: 6rem;
+        }
+}
+
+.calendar{
+    aspect-ratio: 1;
+    background-color: $grey-darker;
+}
