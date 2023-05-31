@@ -3,12 +3,22 @@ body {
   color: #497174;
 }
 
+header {
+  color: #D6E4E5;
+}
 header .container {
-  background-color: #EB6440;
+  background-color: #497174;
 }
 
 .profile-picture {
+  padding: 0px;
   aspect-ratio: 1;
+  overflow: hidden;
+}
+.profile-picture img {
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .calendar {

@@ -10,7 +10,8 @@ body{
 }
 header{
     .container{
-    background-color: $orange;}
+    background-color: $grey-darkest;}
+    color: $grey;
 }
 .profile-picture{
     // width: 25em;
@@ -19,7 +20,13 @@ header{
     // background-color: $grey-darkest;
     // color: $white;
     // border-color: $grey;
+    padding: 0px;
     aspect-ratio: 1;
+    overflow: hidden;
+    img{
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
 }
 // .absensi-container{
 //     // .col{

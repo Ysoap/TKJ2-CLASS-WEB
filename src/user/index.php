@@ -63,6 +63,7 @@ if($_SESSION['login'] == false){
         </div>
       </div>
     </header>
-    <main></main>
+    <main class="open"></main>
+    <footer>ajnjkchs</footer>
 </body>
 </html>

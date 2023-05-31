@@ -29,10 +29,12 @@
           tambah data
         </button>
         <!-- read -->
-        <form class=" d-flex rounded-pill overflow-hidden border border-1 border-dark w-25" method="post" action="">
-            <input type="text"class="form-control border border-0" id="keyword" rows="1" name="keyword"></input>
-            <img src="../../img/loader.gif" alt="" srcset="" class='loader'>
-        </form>
+        <div class="searchbar-container d-flex bg-white rounded-5 border border-1 border-dark">
+              <form method="post" action="">
+                 <input type="text"class="border-0" id="keyword" rows="1" name="keyword"></input>
+              </form>
+              <img src="../../img/loader.gif" alt="" srcset="" class='loader'>
+        </div>
       </div>
                 <form action="koneksi.php" method="post">
                   <!-- Modal -->

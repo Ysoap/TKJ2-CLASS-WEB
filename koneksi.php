@@ -17,18 +17,38 @@ function register(){
             $username = strtolower(stripslashes($_POST["username_register"])); 
             $password = mysqli_real_escape_string($conn,$_POST["password_register"]); 
             $password_repeat = mysqli_real_escape_string($conn,$_POST["password_register_repeat"]);
-            $result = mysqli_query($conn,"SELECT username FROM `loginNonAdmin` WHERE username='$username'");
+            // $result = mysqli_query($conn,"SELECT username FROM `loginNonAdmin` WHERE username='$username'");
             // if ($result) {
             //    echo "<script> alert('username anda sudah ada')</script>";
             //    return false;
             // }
+            
+
+            //check the username
+            $username_check = mysqli_query($conn, "SELECT * FROM `login` WHERE username='$username'");
+            if(mysqli_fetch_assoc($username_check)){
+                echo " <script> alert('Username sudah ada') </script>";
+                return false;
+            }
             if ($password != $password_repeat) {
                 echo " <script> alert('sandi tidak sama') </script>";
                 return false;
             }
             $password = password_hash($password, PASSWORD_DEFAULT);
             mysqli_query($conn, "INSERT INTO `login` (id,username,`password`,`admin`) VALUES (NULL,'$username','$password','0')");
+            mysqli_query($conn, "INSERT INTO `absensi` (id,username,sakit,izin,alpha,bulan) VALUES 
+            (NULL,'$username',0,0,0,'juni'),
+            (NULL,'$username',0,0,0,'juli'),
+            (NULL,'$username',0,0,0,'agustus'),
+            (NULL,'$username',0,0,0,'september'),
+            (NULL,'$username',0,0,0,'oktober'),
+            (NULL,'$username',0,0,0,'novemver'),
+            (NULL,'$username',0,0,0,'desember')
+            ");
             $_SESSION['username-from-register'] = $username;
+            $_SESSION['password-from-register'] = $password;
+            $_SESSION['password-from-register-repeat'];
+            echo $_SESSION['username-from-register'];
             header("Location: ../user-profile-input/index.php");
         // }
 }
@@ -253,14 +273,11 @@ function first_data_add(){
         echo "<script>alert('yang anda upload kelebihan mb)</script>";
         return false;
     }
-     
-    echo "$Profilepicturename";
-    echo "$tmp";
-    move_uploaded_file($tmp,'../../img/profile-picture'.$Profilepicturename);
+    move_uploaded_file($tmp,'../../img/profile-picture/'.$Profilepicturename);
     $username_input = $_SESSION['username-from-register'];
     mysqli_query($conn, "INSERT INTO SISWA (id, nama, nisn, `no absen`, `tanggal lahir`, absensi, `no hp`, alamat, `profile-pic`, username) VALUES (NULL, '$nama', '$nisn', '$noabsen', '$tanggallahir', '$absensi', '$nohp', '$alamat','$Profilepicturename', '$username_input');");
     $_SESSION["login"] = true;
     $_SESSION["nama"] = $nama;
-    header('Location: ../user/index.php');
+    // header('Location: ../user/index.php');
 }
 ?>  

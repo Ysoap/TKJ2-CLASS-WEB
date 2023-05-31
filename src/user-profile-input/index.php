@@ -1,7 +1,8 @@
 <?php 
-require("../../koneksi.php")
-
-
+require("../../koneksi.php");
+    if(isset($_POST['first_data_add'])){
+        first_data_add();
+    }
 ?>
 
 

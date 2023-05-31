@@ -1,7 +1,7 @@
 <?php 
    
     require "../../koneksi.php";
-    if (isset($_POST['register'])) {
+    if (isset($_POST['username-register'])) {
         register();
     }
 ?>
