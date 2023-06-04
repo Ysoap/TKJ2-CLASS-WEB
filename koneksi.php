@@ -25,18 +25,32 @@ function register(){
             
 
             //check the username
-            $username_check = mysqli_query($conn, "SELECT * FROM `login` WHERE username='$username'");
-            if(mysqli_fetch_assoc($username_check)){
-                echo " <script> alert('Username sudah ada') </script>";
-                return false;
-            }
+            // $username_check =  mysqli_query($conn, "SELECT * FROM `login` WHERE username='$username'");
+            // if(mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `login` WHERE username='$username'"))){
+            //     echo " <script> alert('Username sudah ada') </script>";
+            //     return false;
+            // }
             if ($password != $password_repeat) {
                 echo " <script> alert('sandi tidak sama') </script>";
                 return false;
             }
             $password = password_hash($password, PASSWORD_DEFAULT);
-            mysqli_query($conn, "INSERT INTO `login` (id,username,`password`,`admin`) VALUES (NULL,'$username','$password','0')");
-            mysqli_query($conn, "INSERT INTO `absensi` (id,username,sakit,izin,alpha,bulan) VALUES 
+            
+            $_SESSION['username-from-register'] = $username;
+            $_SESSION['password-from-register'] = $password;
+            $_SESSION['password-from-register-repeat'];
+            // echo $_SESSION['username-from-register'];
+            header("Location: user-profile-input/index.php");
+        // }
+}
+//submit data saat pertama kali daftar
+function first_data_add(){
+    global $conn;
+    $username = $_SESSION['username-from-register'];
+    $password = $_SESSION['password-from-register'];
+    mysqli_query($conn, "INSERT INTO `login` (id,username,`password`,`admin`) VALUES (NULL,'$username','$password','0')");
+    //insert absensi
+    mysqli_query($conn, "INSERT INTO `absensi` (id,username,sakit,izin,alpha,bulan) VALUES 
             (NULL,'$username',0,0,0,'juni'),
             (NULL,'$username',0,0,0,'juli'),
             (NULL,'$username',0,0,0,'agustus'),
@@ -45,12 +59,36 @@ function register(){
             (NULL,'$username',0,0,0,'novemver'),
             (NULL,'$username',0,0,0,'desember')
             ");
-            $_SESSION['username-from-register'] = $username;
-            $_SESSION['password-from-register'] = $password;
-            $_SESSION['password-from-register-repeat'];
-            echo $_SESSION['username-from-register'];
-            header("Location: ../user-profile-input/index.php");
-        // }
+    $nama = strtoupper($_POST["nama"]); 
+    $nisn = $_POST["nisn"];
+    $noabsen = $_POST["noabsen"];
+    $tanggallahir = $_POST["tanggallahir"];
+    $absensi = $_POST["absensi"];
+    $nohp = $_POST["nohp"];
+    $alamat = $_POST["alamat"];
+
+    $Profilepicturename = $_FILES['img']["name"];
+    $uniqid = uniqid();
+    $type = explode('.',"$Profilepicturename");
+    $type = strtolower(end($type));
+    $Profilepicturename = $uniqid.'.'.$type;
+    $size = $_FILES['img']["size"];
+    $tmp  = $_FILES["img"]["tmp_name"];
+    $valid_type = ["jpg","jpeg","png"];
+    if(!in_array($type,$valid_type)){
+        echo "<script>alert('yang anda upload bukan gambar')</script>";
+        return false;
+    }
+    if ($size > 200000) {
+        echo "<script>alert('yang anda upload kelebihan mb')</script>";
+        return false;
+    }
+    move_uploaded_file($tmp,'../../../img/profile-picture/'.$Profilepicturename);
+    $username_input = $_SESSION['username-from-register'];
+    mysqli_query($conn, "INSERT INTO SISWA (id, nama, nisn, `no absen`, `tanggal lahir`, absensi, `no hp`, alamat, `profile-pic`, username) VALUES (NULL, '$nama', '$nisn', '$noabsen', '$tanggallahir', '$absensi', '$nohp', '$alamat','$Profilepicturename', '$username_input');");
+    $_SESSION["login"] = true;
+    $_SESSION["nama"] = $nama;
+    header('Location: ../../user/index.php');
 }
 //login
 function login(){
@@ -58,6 +96,9 @@ function login(){
         $username = $_POST["username_login"];
         $password = $_POST["password_login"];
         $data_login = mysqli_query($conn,"SELECT * FROM `login` WHERE username='$username'");
+        if (!$data_login) {
+            echo '<scrtipt> user tidak ditemukan </script>';
+        }
         $result_data_login = mysqli_fetch_assoc($data_login);
         $password_db_fetch = $result_data_login['password'];
 
@@ -69,7 +110,7 @@ function login(){
                 $_SESSION["login-admin"] = true;
                 $_SESSION["login"] = false;
                 header("Location: ../sidebar/index.php");
-
+                
             }
             else{
                 $_SESSION["login"] = true;
@@ -77,6 +118,7 @@ function login(){
                 header("Location: ../user/index.php");
             }
         }
+     
 }
 //logout
 if(isset($_POST["logout-yes"])) {
@@ -246,38 +288,5 @@ if (isset($_POST["hapus_gambar"])) {
 
 
 }
-//submit data saat pertama kali daftar
-function first_data_add(){
-    global $conn;
-    $nama = strtoupper($_POST["nama"]); 
-    $nisn = $_POST["nisn"];
-    $noabsen = $_POST["noabsen"];
-    $tanggallahir = $_POST["tanggallahir"];
-    $absensi = $_POST["absensi"];
-    $nohp = $_POST["nohp"];
-    $alamat = $_POST["alamat"];
 
-    $Profilepicturename = $_FILES['img']["name"];
-    $uniqid = uniqid();
-    $type = explode('.',"$Profilepicturename");
-    $type = strtolower(end($type));
-    $Profilepicturename = $uniqid.'.'.$type;
-    $size = $_FILES['img']["size"];
-    $tmp  = $_FILES["img"]["tmp_name"];
-    $valid_type = ["jpg","jpeg","png"];
-    if(!in_array($type,$valid_type)){
-        echo "<script>alert('yang anda upload bukan gambar')</script>";
-        return false;
-    }
-    if ($size > 200000) {
-        echo "<script>alert('yang anda upload kelebihan mb)</script>";
-        return false;
-    }
-    move_uploaded_file($tmp,'../../img/profile-picture/'.$Profilepicturename);
-    $username_input = $_SESSION['username-from-register'];
-    mysqli_query($conn, "INSERT INTO SISWA (id, nama, nisn, `no absen`, `tanggal lahir`, absensi, `no hp`, alamat, `profile-pic`, username) VALUES (NULL, '$nama', '$nisn', '$noabsen', '$tanggallahir', '$absensi', '$nohp', '$alamat','$Profilepicturename', '$username_input');");
-    $_SESSION["login"] = true;
-    $_SESSION["nama"] = $nama;
-    // header('Location: ../user/index.php');
-}
 ?>  

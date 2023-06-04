@@ -1,4 +1,4 @@
-$.get("ajax/dashboard/index.php",
+$.get("ajax/keuangan/index.php",
   function (response) {
     $('main').html(response)
     $('head').append('<link rel="stylesheet" type="text/css" href="ajax/dashboard/style.css" />');
@@ -31,7 +31,7 @@ function addCloseClass(){
   )
 }
 $("#sidebar").on('click', function (event) {
-  if(event.target.closest('.dashboard') || event.target.closest('.icon-text')){
+  if(event.target.closest('.dashboard')){
      $.get("ajax/dashboard/index.php",
       function (response) {
         $('main').html(response)
@@ -40,7 +40,7 @@ $("#sidebar").on('click', function (event) {
       $('link[href="ajax/data/style.css"]').remove()
       addCloseClass()
   }
-  if(event.target.closest(".setting")){
+  if(event.target.closest(".setting") || event.target.closest(".setting-dashboard")){
     $.get("ajax/setting/index.php",
       function (response) {
         $('main').html(response)
@@ -61,3 +61,35 @@ $("#sidebar").on('click', function (event) {
   }
 });
 
+$('main').on("click", function(event) {
+  if(event.target.closest(".dashboard-dashboard")){
+    if(event.target.closest(".dashboard-data")){
+      $.get("ajax/dashboard/index.php",
+      function (response) {
+        $('main').html(response)
+        $('link[href="ajax/data/style.css"]').remove()
+        }
+      );
+    }
+  }
+  if(event.target.closest(".dashboard-data")){
+    $.get("ajax/data/index.php",
+    function (response) {
+      $('main').html(response)
+      $('head').append('<link rel="stylesheet" type="text/css" href="ajax/data/style.css">')
+      $('link[href="ajax/dashboard/style.css"]').remove()
+      $.getScript("ajax/data/script.js")
+      }
+    );
+  }
+  if(event.target.closest(".dashboard-keuangan")){
+    $.get("ajax/keuangan/index.php",
+      function (response) {
+        $('main').html(response)
+        $('head').append('<link rel="stylesheet" type="text/css" href="ajax/keuangan/style.css" />');
+      }
+    );
+  }
+  if(event.target.closest(".dashboard-dashboard")){}
+
+});

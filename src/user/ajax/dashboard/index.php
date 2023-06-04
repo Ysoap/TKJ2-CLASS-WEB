@@ -135,26 +135,26 @@ $tanggallahir = $fetch['tanggal lahir']
     </div>
     <div class="row g-3 row-cols-2 data-d-container ">
         <div class="data-d-container">
-            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center">
-                <i class="bi bi-speedometer2 dashboard-dashboard"></i>
+            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-dashboard">
+                <i class="bi bi-speedometer2 "></i>
                 <span class="icon-text">Dashboard</span>
             </div>
         </div>
         <div class="data-d-container">
-            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center">
-                <i class="bi bi-bar-chart-fill dashboard-data"></i>
+            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-data">
+                <i class="bi bi-bar-chart-fill "></i>
                 <span class="icon-text">Data</span>
             </div>
         </div>
         <div class="data-d-container">
-            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center">
+            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-keuangan">
                 <i class="bi bi-currency-dollar dashboard-keuangan"></i>
                 <span class="icon-text">Keuangan</span>
             </div>
         </div>
-        <div class="data-d-container">
-            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center">
-                <i class="bi bi-gear-fill dashboard-setting"></i>
+        <div class="data-d-container ">
+            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-setting">
+                <i class="bi bi-gear-fill "></i>
                 <span class="icon-text">Setting</span>
             </div>
         </div>
