@@ -35,6 +35,7 @@ if($_SESSION['login'] == false){
     <!-- <script src="script.js" defer></script> -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="ajax/keuangan/style.css" />
 </head>
 <body>
 <header class="">
