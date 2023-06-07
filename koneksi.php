@@ -39,9 +39,68 @@ function register(){
             $_SESSION['username-from-register'] = $username;
             $_SESSION['password-from-register'] = $password;
             $_SESSION['password-from-register-repeat'];
+            $_SESSION['otp'] = true;
             // echo $_SESSION['username-from-register'];
-            header("Location: user-profile-input/index.php");
+            header("Location: otp/index.php");
         // }
+}
+function otp(){
+    global $conn;
+    date_default_timezone_set('Asia/Jakarta');
+    if (isset($_POST['submit-otp'])) {
+        $nomor = mysqli_escape_string($conn, $_POST['nomor']);
+        if ($nomor) {
+            if (!mysqli_query($conn, "DELETE FROM otp WHERE nomor = $nomor")) {
+                echo ("Error description: " . mysqli_error($conn));
+            }
+            $curl = curl_init();
+            $otp = rand(100000, 999999);
+            $waktu = time();
+            mysqli_query($conn, "INSERT INTO `otp` (id,nomor,otp,waktu) VALUES (NULL,'$nomor','$otp','$waktu')");
+            $data = [
+                'target' => $nomor,
+                'message' => "Your OTP : " . $otp
+            ];
+    
+            curl_setopt(
+                $curl,
+                CURLOPT_HTTPHEADER,
+                array(
+                    "Authorization: DRVHa3T9LhkBQ!nJw9oV",
+                )
+            );
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+            curl_setopt($curl, CURLOPT_URL, "https://api.fonnte.com/send");
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+            $result = curl_exec($curl);
+            curl_close($curl);
+        }
+    } elseif (isset($_POST['submit-login'])) {
+        $otp = $_POST['otp'];
+        $nomor = $_POST['nomor'];
+        var_dump($otp);
+        var_dump($nomor);
+        $q = mysqli_query($conn, "SELECT * FROM otp WHERE otp=$otp");
+        $q = mysqli_query($conn, "SELECT * FROM otp WHERE nomor=$nomor AND otp=$otp");
+        $row = mysqli_num_rows($q);
+        $r = mysqli_fetch_array($q);
+        var_dump($r);
+        if ($row) {
+            if (time() - $r['waktu'] <= 300) {
+                $_SESSION['user-profile-input'] = true;
+                header('Location: ../user-profile-input/index.php');
+            } else {
+                echo "otp expired";
+            }
+        } else {
+            echo "otp salah";
+        }
+        // echo "$q";
+    }
+    
 }
 //submit data saat pertama kali daftar
 function first_data_add(){
@@ -88,6 +147,9 @@ function first_data_add(){
     mysqli_query($conn, "INSERT INTO SISWA (id, nama, nisn, `no absen`, `tanggal lahir`, absensi, `no hp`, alamat, `profile-pic`, username) VALUES (NULL, '$nama', '$nisn', '$noabsen', '$tanggallahir', '$absensi', '$nohp', '$alamat','$Profilepicturename', '$username_input');");
     $_SESSION["login"] = true;
     $_SESSION["nama"] = $nama;
+    unset($_SESSION['password-from-register'] );
+    unset($_SESSION['otp'] );
+    unset($_SESSION['user-profile-input'] );
     header('Location: ../../user/index.php');
 }
 //login

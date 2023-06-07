@@ -1,0 +1,16 @@
+.password-register-container {
+  overflow: hidden;
+  border-color: black !important;
+}
+.password-register-container input {
+  outline: 0px;
+  border: 0px;
+}
+.password-register-container input:focus {
+  outline: 0px;
+  border: 0px;
+}
+
+form button {
+  width: 60%;
+}/*# sourceMappingURL=style.css.map */

@@ -1,5 +1,9 @@
 <?php
 require("../../koneksi.php");
+session_start();
+if (isset($_SESSION['login'])) {
+    header('Location: ../user/index.php');
+}
 if (isset($_POST["login"])) {
     login();
 }
