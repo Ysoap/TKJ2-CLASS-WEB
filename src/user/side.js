@@ -2,6 +2,9 @@ $.get("ajax/keuangan/index.php",
   function (response) {
     $('main').html(response)
     $('head').append('<link rel="stylesheet" type="text/css" href="ajax/dashboard/style.css" />');
+    // $.getScript("../../node_modules/bootstrap/dist/js/bootstrap.bundle.js", function (script, textStatus, jqXHR) {
+      
+    // });
   });
 $(window).on("click",function (event) {
   switch(event.target){

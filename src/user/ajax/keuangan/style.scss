@@ -9,7 +9,7 @@ $white:#d6d6d6;
 .bulan-ini
 {
     background-color: $grey-darkest;
-    aspect-ratio: 1;
+    // aspect-ratio: 1;
     width: 100%;
     margin-top: 5em !important;
     color: $grey;
@@ -24,3 +24,6 @@ $white:#d6d6d6;
     .masuk-keluar{
     }
 }
+// .main{
+//     z-index: -10;
+// }
