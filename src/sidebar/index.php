@@ -33,7 +33,7 @@ if($_SESSION['login-admin'] == false){
 </head>
 <body>
 <header class="">
-      <div class="container sidebar position-fixed bg-dark-subtle  top-0 shadow col p-0 close" id="sidebar">
+      <div class="container sidebar position-fixed   top-0 shadow col p-0 close" id="sidebar">
         <div class="icon w-100 ms-0"></div>
         <button type="submit" class="humberger-toggle  d-sm-flex justify-content-center align-items-center h-10 ms-0 btn position-absolute end-0" id="humberger-toggle"><i class="bi bi-list fs-1 "></i></button>
         <div class="sidebar-content-container">

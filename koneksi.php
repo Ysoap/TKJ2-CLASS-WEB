@@ -352,18 +352,7 @@ if (isset($_POST["hapus_gambar"])) {
 }
 
 
-// //keuangan
-// $month = ['januari','februari','maret','april','mei','juni','juli','agustus','september','november','oktober','desember'];
-// $initial_date_query = mysqli_query($conn,'SELECT * FROM juni');
-// $initial_date_num_fetch = mysqli_fetch_assoc($initial_date_query);
-// $initial_date_num = $initial_date_num_fetch['num'];
-// $date =(int)date('m');
-// if( $date == 6){
-// //bulan ini content = query
-// $present = 6;
-// }
-// elseif (da) {
-//     # code...
-// }
+//keuangan
+
 
 ?>  

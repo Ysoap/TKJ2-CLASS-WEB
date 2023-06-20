@@ -1,21 +1,39 @@
+body {
+  background-color: #D6E4E5;
+  color: #497174;
+}
+
+header {
+  z-index: 1;
+  position: absolute;
+  color: #D6E4E5;
+}
+header .container {
+  background-color: #497174;
+}
+
 .sidebar.close {
   transition: 0.3s;
   width: 100%;
   height: 3em;
   transition: 0.3;
 }
+
 .close :nth-child(3) {
-visibility: hidden;
-transition: 0.3;
+  visibility: hidden;
+  transition: 0.3;
 }
+
 .sidebar {
   transition: 0.3s;
 }
+
 .sidebar-content-container :nth-child(3),
 .sidebar-content-container :nth-child(4),
 .sidebar-content-container :nth-child(5) {
   height: 5%;
 }
+
 .sidebar .humberger-toggle {
   position: absolute;
   height: 3em;
@@ -24,6 +42,7 @@ transition: 0.3;
 .header {
   cursor: pointer;
 }
+
 @media (min-width: 576px) {
   .sidebar {
     transition: 0.5s;
@@ -36,24 +55,31 @@ transition: 0.3;
     height: 100%;
   }
   .close :nth-child(3) {
-    visibility:visible;
+    visibility: visible;
     transition: 0.3;
-    }
-  
+  }
 }
 .dashboard {
   margin-top: 8em;
 }
+
 .nav-child-closed {
   opacity: 0%;
   transition: 0.3s;
 }
+
 .dashboard span,
 .data span,
 .img span,
 .setting span {
   transition: 0.3s;
+  cursor: pointer;
 }
-.main-down{
-  transform: translateY(10em);
-}
+
+/* .nav-open{
+  transform: translateY(20em);
+  transition: .2s;
+} */
+main {
+  transition: 0.2s;
+}/*# sourceMappingURL=side.css.map */

@@ -14,4 +14,11 @@
 .main .saldo-text,
 .bulan-ini .saldo-text {
   font-size: 1.3em;
+}
+.perubahan-saldo {
+  right: 15%;
+}
+
+#history {
+  min-height: 5em;
 }/*# sourceMappingURL=style.css.map */

@@ -1,101 +1,160 @@
+<?php 
+// require 'koneksi';
+$conn = mysqli_connect("localhost","root","","2023_ADMINISTRATION");
+$month = ['januari','februari','maret','april','mei','juni','juli','agustus','september','november','oktober','desember'];
+$initial_date_query = mysqli_query($conn,"SELECT * FROM  `now`");
+$passed_db_query = mysqli_query($conn,"SELECT * FROM  `passed`");
+$rows = [];
+$passed_db = [];
+while($pass = mysqli_fetch_assoc($passed_db_query)){
+  $passed_db[] = $pass;
+}
+
+while($row = mysqli_fetch_assoc($initial_date_query)){
+$rows[] = $row;
+}
+$initial_date_num_fetch = mysqli_fetch_assoc($initial_date_query);
+$initial_date_num = $initial_date_num_fetch['num'];
+$date =(int)date('m') + 1;
+$latest = mysqli_fetch_assoc(mysqli_query($conn," SELECT * FROM `now` WHERE id=(SELECT MAX(id) FROM `now`)" )) ;
+$present = (int)$latest['num'];
+$latest_saldo = $latest['sisa_saldo'];
+$latest_keluar = mysqli_query($conn," SELECT * FROM `now` WHERE ket='keluar'" );
+$latest_masuk = mysqli_query($conn," SELECT * FROM `now` WHERE ket='masuk'" );
+$latest_keluar_sum = [];
+$latest_masuk_sum = [];
+while($a = mysqli_fetch_assoc($latest_keluar)){
+  $latest_keluar_sum[] = (int)$a['value'];
+  }
+// var_dump($latest_keluar_sum);
+while($b = mysqli_fetch_assoc($latest_masuk)){
+  $latest_masuk_sum[] = (int)$b['value'];
+  }
+// var_dump($latest_keluar_sum);
+
+if( $date === $present){
+//bulan ini content = query
+  }
+  $keluar = [];
+  $masuk = [];
+  foreach($rows as $item){
+    if(in_array('keluar',$item)){
+      $keluar[] = $item;
+    };
+    if(in_array('masuk',$item)){
+      $masuk[] = $item;
+    };
+}
+$passed = $present;
+if ($date === $present + 1) {
+    $bulan = $month[$present +1 ];
+    mysqli_query($conn,"INSERT INTO `now` (id,num,tanggal,ket,`value`,deskripsi,sisa_saldo) VALUES (NULL,'$date','belum ada pemasukan','masuk','0','','$latest_saldo')");
+    mysqli_query($conn,"INSERT INTO `now` (id,num,tanggal,ket,`value`,deskripsi,sisa_saldo) VALUES (NULL,'$date','belum ada peneluaran','keluar','0','','$latest_saldo')");
+    mysqli_query($conn,"INSERT INTO `passed` SELECT * FROM `now` WHERE num='$passed'");
+    mysqli_query($conn,"DELETE FROM `now` WHERE num='$passed'");
+    //bulan ini content = bla/
+    //add new previous content
+}
+
+echo $passed;
+var_dump($passed);
+// for ($present=date('m'); $present < date('m'); $present++) { 
+  
+// }
+?>
+
 <div class="container w-xl-25">
      <div class=" main border border-1 border-dark rounded rounded-2 ms-0">
         <div class="header top-02">
-                <span>Bulan Ini</span>
+          <span>Bulan Ini</span>
         </div>
         <div class="main-contentbottom-0 w-100">
-            <div class="saldo-kas d-flex flex-column mb-4 ms-3">
-                <span class="saldo-text">Saldo Kas:</span>
-                <span class="saldo">400k</span>
-            </div>
+          <div class="saldo-kas d-flex flex-column mb-4 ms-lg-3 text-center text-lg-start">
+            <span class="saldo-text">Saldo Kas:</span>
+                <span class="saldo"><?= $latest_saldo?></span>
+              </div>
             <div class="row w-100 border border-1 border-dark ms-0 masuk-keluar">
                 <div class="col border border-1 border-dark d-flex flex-column p-4">
                     <span class="masuk-text">keluar:</span>
-                    <span class="masuk">10k</span>
-                </div>
-                <div class="col border border-1 border-dark d-flex flex-column p-4">
-                    <span class="keluar-text">keluar:</span>
-                    <span class="keluar">10k</span>
-                </div>
-            </div>
-            <div class="row w-100 border border-1 border-dark ms-0 masuk-keluar ">
-              <div class="col-12 col-xl-6 border border-1 border-dark d-flex flex-column p-0">
-                  <span class="bg-primary">masuk</span>
-                  <div class="accordion m-0" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                19
-                            </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                1-2-2005
-                            </div>
-                            </div>
-                        </div>
+                    <span class="masuk"><?= array_sum($latest_keluar_sum)?></span>
                   </div>
+                  <div class="col border border-1 border-dark d-flex flex-column p-4">
+                    <span class="keluar-text">masuk:</span>
+                    <span class="keluar"><?= array_sum($latest_masuk_sum)?></span>
+                  </div>
+                </div>
+                <div class="row w-100 border border-1 border-dark ms-0 masuk-keluar ">
+                  <div class="col-12 col-xl-6 border border-1 border-dark d-flex flex-column p-0">
+                    <span class="bg-primary p-2 text-center">masuk</span>
+                    <div class="accordion m-0 d-flex flex-column gap-2 bg-dark-subtle" id="accordionExample">
+                      
+                    <?php foreach($masuk as $value) :?>
+                      <?php if($value['value'] != '0'):?>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
+                                    <span><?= $value['tanggal']?></span> 
+                                    <div class="perubahan-saldo position-absolute ">
+                                      <span class="">+<?= $value['value']?></span>
+                                      <span>--></span>
+                                      <span class=""><?= $value['sisa_saldo']?></span>
+                                    </div>
+                                </button>
+                                </h2>
+                                <div id="<?= $value['id']?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body"><?= $value['deskripsi']?></div>
+                                </div>
+                            </div>
+                            <?php endif ?>
+                        <?php endforeach ?>
+                      </div>
               </div>
               <div class="col-12 col-xl-6 border border-1 border-dark d-flex flex-column p-0">
-                  <span class="bg-warning">keluar</span>
+                  <span class="bg-warning p-2 text-center">keluar</span>
+                  <?php foreach($keluar as $value) :?>
+                  <?php if($value['value'] != '0'):?>
                   <div class="accordion m-0" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                19
+                               <?= $value['tanggal'] ?>
                             </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                1-2-2005
-                            </div>
+                            <div class="accordion-body"><?= $value['deskripsi']?></div>
                             </div>
                         </div>
                   </div>
+                  <?php endif ?>
+                  <?php endforeach ?>
               </div>
             </div>
      </div>
-    <div class="bulan-ini border border-1 border-dark rounded rounded-2 ms-0 ">
-        <div class="main-content bg-grey w-100">
-            
+</div>
+<div class="main border border-1 border-dark" id="history">
+  <div class="header">History</div>
+  <div class="data-history m-2 d-flex flex-column gap-2 bg-white">
+    <?php foreach($passed_db as $key) : ?>
+      <?php if($value['value'] != '0'):?>
+        <div class="accordion m-0" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $key['id']?>" aria-expanded="true" aria-controls="collapseOne">
+                            <span><?= $key['tanggal']?></span> 
+                            <div class="perubahan-saldo position-absolute ">
+                            <span class="">+<?= $key['value']?></span>
+                            <span>--></span>
+                            <span class=""><?= $key['sisa_saldo']?></span>
+                            </div>
+                      </button>
+                </h2>
+                <div id="<?= $key['id']?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body"><?=$key['deskripsi']?></div>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Accordion Item #1
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Accordion Item #3
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
+      <?php endif ?>
+    <?php endforeach ?>
   </div>
 </div>
 </div>

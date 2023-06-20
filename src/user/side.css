@@ -4,6 +4,8 @@ body {
 }
 
 header {
+  z-index: 1;
+  position: absolute;
   color: #D6E4E5;
 }
 header .container {
