@@ -24,7 +24,7 @@ if($_SESSION['login-admin'] == false){
     <link rel="stylesheet" href="../../main.css">
     <link rel="stylesheet" href="side.css" type="text/css">
     <!-- dashboard css -->
-    <link rel="stylesheet" href="ajax/dashboard-content/style.css">
+    <!-- <link rel="stylesheet" href="ajax/dashboard-content/style.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js" defer></script>
     <!-- <script src="script.js" defer></script> -->

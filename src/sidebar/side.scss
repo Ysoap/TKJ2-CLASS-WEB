@@ -15,11 +15,10 @@ header{
     background-color: $grey-darkest;}
     color: $grey;
 }
-.sidebar.close {
-  transition: 0.3s;
-  width: 100%;
-  height: 3em;
-  transition: 0.3;
+ .close {
+    transition: 0.3s;
+    width: 100%;
+    height: 3em !important;
 }
 .close :nth-child(3) {
 visibility: hidden;
@@ -27,6 +26,7 @@ transition: 0.3;
 }
 .sidebar {
   transition: 0.3s;
+  height: 37%;
 }
 .sidebar-content-container :nth-child(3),
 .sidebar-content-container :nth-child(4),
@@ -54,7 +54,11 @@ transition: 0.3;
   .close :nth-child(3) {
     visibility:visible;
     transition: 0.3;
-    }
+  }
+  .close {
+    height: 100% !important;
+  }
+    
   
 }
 .dashboard {

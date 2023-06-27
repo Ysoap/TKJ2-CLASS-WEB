@@ -1,7 +1,9 @@
 <?php 
 // require 'koneksi';
+$A = $_SESSION['a'];
+
 $conn = mysqli_connect("localhost","root","","2023_ADMINISTRATION");
-// $month = ['januari','februari','maret','april','mei','juni','juli','agustus','september','november','oktober','desember'];
+$month = ['januari','februari','maret','april','mei','juni','juli','agustus','september','november','oktober','desember'];
 $initial_date_query = mysqli_query($conn,"SELECT * FROM  `now`");
 $passed_db_query = mysqli_query($conn,"SELECT * FROM  `passed`");
 $rows = [];
@@ -56,10 +58,15 @@ if ($date === $present + 1) {
     //add new previous content
 }
 
-echo $passed;
-var_dump($passed);
+if(isset($_POST['submit'])) {
+  $_SESSION['a'] = 'c';
+  $hasil = (int)$latest_saldo;
+  echo $hasil;
+  echo $latest_saldo;
+  echo 'ld2okdjij';
+  // mysqli_query($conn,"INSERT INTO `now` (id,num,tanggal,ket,`value`,deskripsi,sisa_saldo) VALUES (NULL,'$date','belum ada','masuk','0','','$latest_saldo')");
+}
 // for ($present=date('m'); $present < date('m'); $present++) { 
-  
 // }
 ?>
 
@@ -78,13 +85,15 @@ var_dump($passed);
                     <span class="masuk-text">keluar:</span>
                     <span class="masuk"><?= array_sum($latest_keluar_sum)?></span>
                   </div>
-                  <div class="col border border-1 border-dark d-flex flex-column p-4">
+                  <div class="col border border-1 border-dark d-flex flex-column p-4 position-relative">
+                    <i class="bi bi-plus-circle-fill position-absolute keluar-masuk "data-bs-toggle="modal" data-bs-target="#modalTambah"></i>
                     <span class="keluar-text">masuk:</span>
                     <span class="keluar"><?= array_sum($latest_masuk_sum)?></span>
                   </div>
                 </div>
-                <div class="row w-100 border border-1 border-dark ms-0 masuk-keluar ">
+                <div class="row w-100 border border-1 border-dark ms-0 masuk-keluar position-relative">
                   <div class="col-12 col-xl-6 border border-1 border-dark d-flex flex-column p-0">
+                  <i class="bi bi-minus-circle-fill position-absolute keluar-masuk"></i>
                     <span class="bg-primary p-2 text-center">masuk</span>
                     <div class="accordion m-0 d-flex flex-column gap-2 bg-dark-subtle" id="accordionExample">
                       
@@ -157,5 +166,33 @@ var_dump($passed);
     <?php endforeach ?>
   </div>
 </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Kas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>      
+            <form action="" method="post" id="tambahLog">
+               <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label" >Deskripsi</label>
+                        <input type="text" class="form-control" id="deskripsi" placeholder="" name="deskripsi">
+                    </div>
+                    <div class="mb-3">
+                        <label for="kelas" class="form-label">Value</label>
+                        <input type="number"class="form-control" id="value" rows="1" name="value"></input>
+                    </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                  <button type="submit" class="btn btn-danger" name="submit">Submit</button>
+               </div>
+            </form>
+        </div>
+    </div>
 </div>
 <?= (int)date('m')?>

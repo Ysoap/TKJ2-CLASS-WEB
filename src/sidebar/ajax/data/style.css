@@ -76,7 +76,10 @@ a {
 }
 
 .loader {
-  width: 15%;
+  aspect-ratio: 1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
 }
 
 @media (min-width: 576px) {
@@ -155,4 +158,22 @@ a {
   main {
     margin-left: 5em;
   }
+}
+.searchbar-container {
+  height: 30px;
+}
+.searchbar-container form {
+  flex-basis: 100%;
+}
+.searchbar-container form input {
+  width: 100%;
+}
+.searchbar-container form input:focus {
+  border: 0px;
+  outline: 0px;
+}
+
+.searchbar-container {
+  height: 38px;
+  overflow: hidden;
 }/*# sourceMappingURL=style.css.map */

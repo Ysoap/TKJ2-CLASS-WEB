@@ -1,0 +1,31 @@
+.main,
+.bulan-ini {
+  background-color: #497174;
+  width: 100%;
+  margin-top: 5em !important;
+  color: #D6E4E5;
+  position: relative;
+}
+.main .saldo,
+.bulan-ini .saldo {
+  font-size: 5em;
+  margin-top: -1rem;
+}
+.main .saldo-text,
+.bulan-ini .saldo-text {
+  font-size: 1.3em;
+}
+.perubahan-saldo {
+  right: 15%;
+}
+
+#history {
+  min-height: 5em;
+}
+
+.keluar-masuk {
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5em;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

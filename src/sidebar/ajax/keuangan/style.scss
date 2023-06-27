@@ -1,0 +1,41 @@
+$grey-light:#9BA4B5;
+$grey:#D6E4E5;
+$grey-darker:#EFF5F5;
+$grey-darkest:#497174;
+$orange : #EB6440;
+$white:#d6d6d6;
+
+.main,
+.bulan-ini
+{
+    background-color: $grey-darkest;
+    // aspect-ratio: 1;
+    width: 100%;
+    margin-top: 5em !important;
+    color: $grey;
+    position: relative;
+    .saldo{
+        font-size: 5em;
+        margin-top: -1rem;
+    }
+    .saldo-text{
+        font-size: 1.3em;
+    }
+    .masuk-keluar{
+    }
+}
+.perubahan-saldo{
+    right: 15%;
+}
+#history{
+    min-height: 5em;
+}
+.keluar-masuk{
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+// .main{
+//     z-index: -10;
+// }

@@ -4,7 +4,14 @@ body {
 }
 
 .profile-picture {
+  padding: 0px;
   aspect-ratio: 1;
+  overflow: hidden;
+}
+.profile-picture img {
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .data-d {

@@ -171,6 +171,7 @@ function login(){
             if ($admin === '1') {
                 $_SESSION["login-admin"] = true;
                 $_SESSION["login"] = false;
+                $_SESSION['username-from-login'] = $username;
                 header("Location: ../sidebar/index.php");
                 
             }
@@ -352,7 +353,15 @@ if (isset($_POST["hapus_gambar"])) {
 }
 
 
-//keuangan
+// //keuangan
+// function tambahLog(){
+//     global $conn;
+//     $json = filter_input(INPUT_POST,'json');
+//     $decoded_json = json_decode($json);
+//     $deskripsi = $decoded_json -> deskripsi;
 
+//     mysqli_query($conn,"INSERT INTO `now` (id,num,tanggal,ket,`value`,deskripsi,sisa_saldo) VALUES (NULL,'','belum ada','masuk','10000','','$val1')");
+
+// }
 
 ?>  

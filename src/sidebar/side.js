@@ -90,6 +90,7 @@ $("#sidebar").on('click', function (event) {
           function (response) {
             $('main').html(response)
             $('head').append('<link rel="stylesheet" type="text/css" href="ajax/keuangan/style.css" />');
+            $.getScript("ajax/keuangan/script.js")
           }
         );
       }
