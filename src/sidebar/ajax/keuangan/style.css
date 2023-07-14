@@ -28,4 +28,9 @@
   top: 1rem;
   font-size: 1.5em;
   cursor: pointer;
+}
+
+.accordion-container {
+  max-height: 25em;
+  overflow: overlay;
 }/*# sourceMappingURL=style.css.map */

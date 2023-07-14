@@ -62,7 +62,16 @@ $("#sidebar").on('click', function (event) {
         $('link[href="ajax/dashboard/style.css"]').remove()
       })
       addCloseClass()
-  }
+    }
+    if(event.target.closest(".keuangan")){
+      $.get("ajax/keuangan/index.php",
+        function (response) {
+          $('main').html(response)
+          $('head').append('<link rel="stylesheet" type="text/css" href="ajax/keuangan/style.css" />');
+          $.getScript("ajax/keuangan/script.js")
+        }
+      );
+    }
 });
     $('main').on("click", function(event) {
       if(event.target.closest(".dashboard-dashboard")){

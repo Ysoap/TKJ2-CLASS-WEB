@@ -261,8 +261,7 @@ if (isset($_POST['submit-update'])) {
     $email = $_POST["email"]; 
     $nohp = $_POST["nohp"];
     $alamat = $_POST["alamat"];
-    $querry = "UPDATE SISWA SET nama = '$nama', kelas= '$kelas', `no absen`= '$noabsen', umur= '$umur', email= '$email', `no hp`= '$nohp', alamat='$alamat' WHERE id = '$id';
-    ";
+    $querry = "UPDATE SISWA SET nama = '$nama', kelas= '$kelas', `no absen`= '$noabsen', umur= '$umur', email= '$email', `no hp`= '$nohp', alamat='$alamat' WHERE id = '$id';";
     $update =
     mysqli_query($conn,$querry);
     if($update){

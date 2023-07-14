@@ -47,9 +47,9 @@ if($_SESSION['login-admin'] == false){
                data
               </span>
             </div>
-            <div class="img  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
-              <i class="bi bi-image-fill ms-3 fs-1"></i>
-              <span class="fs-2 nav-child-closed ms-3">image</span>
+            <div class="keuangan  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
+              <i class="bi bi-currency-dollar fs-1 ms-3"></i>
+              <span class="fs-2 nav-child-closed ms-3">Keuangan</span>
             </div>
             <div class="setting  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
             <i class="bi bi-gear-fill ms-3 fs-1"></i>
