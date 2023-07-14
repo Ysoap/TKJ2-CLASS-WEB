@@ -1,5 +1,6 @@
 $('#modalTambah').on('submit', function (e) {
     e.preventDefault()
+    e.stopPropagation();
     var formData = {
         deskripsi : $('#modalTambah #deskripsi').val(),
         value : $('#modalTambah #value').val()
@@ -26,6 +27,7 @@ $('#modalTambah').on('submit', function (e) {
 });
 $('#modalKeluar').on('submit', function (e) {
     e.preventDefault()
+    e.stopPropagation();
     var formData = {
         deskripsi : $('#modalKeluar #deskripsi').val(),
         value : $('#modalKeluar #value').val()
@@ -53,6 +55,7 @@ $('#modalKeluar').on('submit', function (e) {
 $('#tunggakan').on('submit', function (e) {
     console.log('kmsDD')
     e.preventDefault()
+    e.stopPropagation();
     var formData = {
         value : $('#tunggakan #tunggakan-value').val(),
         id : $('#tunggakan #tunggakan-id').val()

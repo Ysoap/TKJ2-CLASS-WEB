@@ -76,29 +76,27 @@ if( $date === 1){
           <span>Bulan Ini</span>
         </div>
         <div class="main-contentbottom-0 w-100">
-          <div class="saldo-kas d-flex flex-column mb-4 ms-lg-3 text-center text-lg-start">
-            <span class="saldo-text">Saldo Kas:</span>
-                <span class="saldo"><?= $latest_saldo?></span>
-              </div>
+            <div class="saldo-kas d-flex flex-column mb-4 ms-lg-3 text-center text-lg-start">
+              <span class="saldo-text">Saldo Kas:</span>
+              <span class="saldo"><?= $latest_saldo?></span>
+            </div>
             <div class="row w-100 border border-1 border-dark ms-0 masuk-keluar">
                 <div class="col border border-1 border-dark d-flex flex-column p-4 position-relative">
-                    <i class="bi bi-plus-circle-fill position-absolute keluar-masuk "data-bs-toggle="modal" data-bs-target="#modalKeluar"></i>
-                    <span class="masuk-text">Masuk:</span>
-                    <span class="masuk"><?= array_sum($latest_keluar_sum)?></span>
-                  </div>
-                  <div class="col border border-1 border-dark d-flex flex-column p-4 position-relative">
                     <i class="bi bi-plus-circle-fill position-absolute keluar-masuk "data-bs-toggle="modal" data-bs-target="#modalTambah"></i>
-                    <span class="keluar-text">Keluar:</span>
-                    <span class="keluar"><?= array_sum($latest_masuk_sum)?></span>
-                  </div>
+                    <span class="masuk-text">Masuk:</span>
+                    <span class="masuk"><?= array_sum($latest_masuk_sum)?></span>
                 </div>
-                <div class="row w-100 border border-1 border-dark ms-0 masuk-keluar position-relative">
-                  <div class="col-12 col-xl-6 border border-1 border-dark d-flex flex-column p-0">
-                  <i class="bi bi-minus-circle-fill position-absolute keluar-masuk"></i>
+                <div class="col border border-1 border-dark d-flex flex-column p-4 position-relative">
+                    <i class="bi bi-plus-circle-fill position-absolute keluar-masuk "data-bs-toggle="modal" data-bs-target="#modalKeluar"></i>
+                    <span class="keluar-text">Keluar:</span>
+                    <span class="keluar"><?= array_sum($latest_keluar_sum)?></span>
+                </div>
+            </div>
+            <div class="row w-100 border border-1 border-dark ms-0 masuk-keluar position-relative">
+                <div class="col-12 col-xl-6 border border-1 border-dark d-flex flex-column p-0">
                     <span class="bg-primary p-2 text-center">masuk</span>
                     <div class="accordion m-0 d-flex flex-column gap-2 bg-dark-subtle accordion-container" id="">
-                    
-                    <?php foreach($keluar as $value) :?>
+                    <?php foreach($masuk as $value) :?>
                       <?php if($value['value'] != '0'):?>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
@@ -117,13 +115,13 @@ if( $date === 1){
                             </div>
                             <?php endif ?>
                         <?php endforeach ?>
-                      </div>
+                    </div>
               </div>
               <div class="col-12 col-xl-6 border border-1 border-dark d-flex flex-column p-0">
                   <span class="bg-warning p-2 text-center">keluar</span>
                   <div class="accordion m-0 d-flex flex-column gap-2 bg-dark-subtle accordion-container" id="">
                   <!--  -->
-                  <?php foreach($masuk as $value) :?>
+                  <?php foreach($keluar as $value) :?>
                   <?php if($value['value'] != '0'):?>
                   <div class="accordion m-0" id="accordionExample">
                         <div class="accordion-item">
@@ -131,7 +129,7 @@ if( $date === 1){
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
                             <span><?= $value['tanggal']?></span> 
                                     <div class="perubahan-saldo position-absolute ">
-                                      <span class="">+<?= $value['value']?></span>
+                                      <span class="">-<?= $value['value']?></span>
                                       <span>--></span>
                                       <span class=""><?= $value['sisa_saldo']?></span>
                                     </div>
