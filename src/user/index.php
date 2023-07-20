@@ -43,8 +43,8 @@ if($_SESSION['login'] == false){
         <div class="icon w-100 ms-0"></div>
         <button type="submit" class="humberger-toggle  d-sm-flex justify-content-center align-items-center h-10 ms-0 btn position-absolute end-0" id="humberger-toggle"><i class="bi bi-list fs-1 "></i></button>
         <div class="sidebar-content-container">
-            <div class="dashboard w-100 ms-0 mb-2 d-flex align-items-center gap-2 ">
-              <i class="bi bi-speedometer2 fs-1 ms-3 "></i>
+            <div class="absensi w-100 ms-0 mb-2 d-flex align-items-center gap-2 ">
+              <i class="bi bi-person-fill fs-1 ms-3"></i>
               <span class="fs-2 nav-child-closed ms-3">Dashboard</span>
             </div>
             <div class="data  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
@@ -65,7 +65,6 @@ if($_SESSION['login'] == false){
       </div>
     </header>
     <main class="open"></main>
-    <footer>ajnjkchs</footer>
 </body>
 </html>
 

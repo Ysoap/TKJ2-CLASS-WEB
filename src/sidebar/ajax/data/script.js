@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+  $('.loader').hide()
   $("#keyword").on("keyup",()=>{
     $('.loader').show()
   if (keyword.value === '') {
@@ -15,4 +16,5 @@ $(document).ready(function(){
     })
     }
   })
+
 })

@@ -135,9 +135,9 @@ $tanggallahir = $fetch['tanggal lahir']
     </div>
     <div class="row g-3 row-cols-2 data-d-container ">
         <div class="data-d-container">
-            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-dashboard">
-                <i class="bi bi-speedometer2 "></i>
-                <span class="icon-text">Dashboard</span>
+            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-absensi">
+                <i class="bi bi-person-fill"></i>
+                <span class="icon-text">Absensi</span>
             </div>
         </div>
         <div class="data-d-container">

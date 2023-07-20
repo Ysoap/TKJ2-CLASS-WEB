@@ -1,17 +1,22 @@
+$grey-light:#9BA4B5;
+$grey:#575757;
+$grey-darker:#EFF5F5;
+$grey-darkest:#171717;
+$grey-darkest-2:#000000;
+$orange : #EB6440;
+$white:#d6d6d6;
 h1 {
   margin-left: 4px;
 }
 
 body {
-  background-color: #f0f0f0;
 }
 
 .email {
   word-wrap: break-word;
 }
 .row {
-  background-color: white;
-  box-shadow: #d4d6d4 -5px 5px 15px 5px;
+  background-color: $grey-darkest;
   margin: 0px;
   flex-direction: column;
   font-size: 15px;

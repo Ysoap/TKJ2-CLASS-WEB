@@ -147,7 +147,7 @@ function first_data_add(){
     }
     move_uploaded_file($tmp,'../../../img/profile-picture/'.$Profilepicturename);
     $username_input = $_SESSION['username-from-register'];
-    mysqli_query($conn, "INSERT INTO SISWA (id, nama, nisn, `no absen`, `tanggal lahir`, absensi, `no hp`, alamat, `profile-pic`, username) VALUES (NULL, '$nama', '$nisn', '$noabsen', '$tanggallahir', '$absensi', '$nohp', '$alamat','$Profilepicturename', '$username_input');");
+    mysqli_query($conn, "INSERT INTO SISWA (id, nama, nisn, `no absen`, `tanggal lahir`, email, `no hp`, alamat, `profile-pic`, username) VALUES (NULL, '$nama', '$nisn', '$noabsen', '$tanggallahir', '$absensi', '$nohp', '$alamat','$Profilepicturename', '$username_input');");
     $_SESSION["login"] = true;
     $_SESSION["nama"] = $nama;
     unset($_SESSION['password-from-register'] );
@@ -271,13 +271,17 @@ if(isset($_POST['delete'])){
 if (isset($_POST['submit-update'])) {
     $id = $_POST["id"];
     $nama = $_POST["nama"];
-    $kelas = $_POST["kelas"];
+    $nisn = $_POST["nisn"];
     $noabsen = $_POST["noabsen"];
-    $umur = $_POST["umur"];
+    $tanggallahir = $_POST["tanggallahir"];
     $email = $_POST["email"]; 
     $nohp = $_POST["nohp"];
     $alamat = $_POST["alamat"];
-    $querry = "UPDATE SISWA SET nama = '$nama', kelas= '$kelas', `no absen`= '$noabsen', umur= '$umur', email= '$email', `no hp`= '$nohp', alamat='$alamat' WHERE id = '$id';";
+    $tunggakan = $_POST['tunggakan'];
+    $surpluskas = $_POST['surplus kas'];
+    $querry = "UPDATE SISWA SET nama = '$nama' ,
+     nisn= '$nisn',`no absen`= '$noabsen', `tanggal lahir`= '$tanggallahir', email= '$email', `no hp`= '$nohp', alamat='$alamat' 
+     WHERE id = '$id';";
     $update =
     mysqli_query($conn,$querry);
     if($update){
