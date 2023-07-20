@@ -1,15 +1,19 @@
 body {
-  background-color: #D6E4E5;
-  color: #497174;
+  background-color: #575757;
+  color: #d6d6d6;
 }
 
 header {
   z-index: 1;
   position: absolute;
-  color: #D6E4E5;
+  color: #EFF5F5;
 }
 header .container {
-  background-color: #497174;
+  background-color: #171717;
+}
+
+.humberger-toggle i {
+  color: white;
 }
 
 .close {

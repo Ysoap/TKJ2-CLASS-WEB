@@ -98,9 +98,9 @@ if( $date === 1){
                     <div class="accordion m-0 d-flex flex-column gap-2 bg-dark-subtle accordion-container" id="">
                     <?php foreach($masuk as $value) :?>
                       <?php if($value['value'] != '0'):?>
-                            <div class="accordion-item">
+                            <div class="accordion-item ps-2 pe-2">
                                 <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="accordion-button justify-content-between rounded rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
                                     <span><?= $value['tanggal']?></span> 
                                     <div class="perubahan-saldo position-absolute ">
                                       <span class="">+<?= $value['value']?></span>
@@ -124,9 +124,9 @@ if( $date === 1){
                   <?php foreach($keluar as $value) :?>
                   <?php if($value['value'] != '0'):?>
                   <div class="accordion m-0" id="accordionExample">
-                        <div class="accordion-item">
+                        <div class="accordion-item ps-2 pe-2">
                             <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="accordion-button  rounded rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
                             <span><?= $value['tanggal']?></span> 
                                     <div class="perubahan-saldo position-absolute ">
                                       <span class="">-<?= $value['value']?></span>
@@ -208,6 +208,7 @@ if( $date === 1){
                                     <i class="bi bi-plus-circle-fill color-white" data-bs-toggle="modal" data-bs-target="#modal-surplus"></i>
                                     <i class="bi bi-dash-circle-fill" data-bs-toggle="modal" data-bs-target="#modal-minus-surplus"></i>
                                 </div>
+                              </div>
                             </div>
                         </div>
                   </div>

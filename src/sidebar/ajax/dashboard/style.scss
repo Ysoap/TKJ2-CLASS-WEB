@@ -1,16 +1,15 @@
 $grey-light:#9BA4B5;
 $grey:#D6E4E5;
-$grey-darker:#EFF5F5;
+$grey-darker:#202020;
 $grey-darkest:#497174;
 $orange : #EB6440;
 $white:#d6d6d6;
-body{
-    background-color: $grey;
-    color: $grey-darkest;
-}
 header{
     .container{
     // background-color: $orange;
+}
+body{
+    color: $white;
 }
 }
 .profile-picture{
@@ -28,12 +27,12 @@ header{
             object-fit: cover;
         }
 }
-.absensi-container{
-    // .col{
-    //     aspect-ratio: 1;
-    //     background-color: $grey-darker;
-    // }
-}
+// .absensi-container{
+//     // .col{
+//     //     aspect-ratio: 1;
+//     //     background-color: $grey-darker;
+//     // }
+// }
 .data-d{
     aspect-ratio: 1;
     box-sizing: border-box;

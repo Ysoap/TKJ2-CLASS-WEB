@@ -1,10 +1,10 @@
-$grey-light:#9BA4B5;
+
+$grey-light:#585858;
 $grey:#D6E4E5;
-$grey-darker:#EFF5F5;
-$grey-darkest:#497174;
+$grey-darker:#111111;
+$grey-darkest:#262626;
 $orange : #EB6440;
 $white:#d6d6d6;
-
 .main,
 .bulan-ini
 {
@@ -14,6 +14,10 @@ $white:#d6d6d6;
     margin-top: 5em !important;
     color: $grey;
     position: relative;
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
     .saldo{
         font-size: 5em;
         margin-top: -1rem;
@@ -36,9 +40,32 @@ $white:#d6d6d6;
     font-size: 1.5em;
     cursor: pointer;
 }
+.accordion{
+    border: none !important;
+}
 .accordion-container{
     max-height: 25em;
     overflow: overlay;
+    background-color: $grey-darkest !important;
+    .accordion-button{
+        background-color: $grey-darker !important;
+        color: $grey;
+    }
+}
+.accordion-body{
+    background-color: $grey-darkest;
+ 
+}
+.accordion-item{
+    color: $grey !important;
+    button{
+        background-color: $grey-light;
+        color: $grey;
+    }
+}
+.tunggakan ,
+.surplus{
+    color: $grey;
 }
 // .main{
 //     z-index: -10;

@@ -1,13 +1,6 @@
 body {
-  background-color: #D6E4E5;
-  color: #497174;
-}
-
-header {
-  color: #D6E4E5;
-}
-header .container {
-  background-color: #497174;
+  background-color: #575757;
+  color: #b8b8b8;
 }
 
 .profile-picture {
@@ -23,13 +16,13 @@ header .container {
 
 .calendar {
   aspect-ratio: 1;
-  background-color: #EFF5F5;
+  background-color: #202020;
 }
 
 .data-d {
   aspect-ratio: 1;
   box-sizing: border-box;
-  background-color: #EFF5F5;
+  background-color: #202020;
 }
 .data-d i {
   font-size: 6rem;

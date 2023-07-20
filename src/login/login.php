@@ -25,9 +25,9 @@ if (isset($_POST["login"])) {
     <div class="container d-flex flex-column border border-2  justify-content-center align-items-center p-5">
         <span><?= $_SESSION['login']?>Login</span>
         <form action="" method="post" class="d-flex flex-column gap-3 border border-2 p-3">
-            <input type="text" name="username_login" >
-            <div class="password-container d-flex border border-2 border-dark">
-                <input type="password" name="password_login"class="password border-0" id="password">
+            <input type="text" name="username_login" class="border border-2 border-dark rounded rounded-5 ps-2 pb-2 pt-2">
+            <div class="password-container d-flex border border-2 border-dark border border-1 rounded rounded-5 ps-2 overflow-hidden">
+                <input type="password" name="password_login"class="password border-0 " id="password">
                 <i class="bi bi-eye-slash-fill show-password m-2 pe-auto"></i>
             </div>
             <div class="remember-me d-flex"> 
@@ -35,7 +35,7 @@ if (isset($_POST["login"])) {
                 <span class="ms-1">Remember me</span>
             </div>
            
-            <button type="submit" name="login" >Login</button>
+            <button type="submit" name="login" class="outline-0 border-0 border p-2 m-auto rounded-5 w-75 bg-dark-subtle">Login</button>
             <a href="../daftar/index.php">register</a>
             <!-- <form action="" method="post">
             <input type="hidden" name="daftar" value="daftar" id="">

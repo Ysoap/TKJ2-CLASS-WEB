@@ -1,6 +1,5 @@
-body {
-  background-color: #D6E4E5;
-  color: #497174;
+header body {
+  color: #d6d6d6;
 }
 
 .profile-picture {
@@ -17,7 +16,7 @@ body {
 .data-d {
   aspect-ratio: 1;
   box-sizing: border-box;
-  background-color: #EFF5F5;
+  background-color: #202020;
 }
 .data-d i {
   font-size: 6rem;
@@ -25,5 +24,5 @@ body {
 
 .calendar {
   aspect-ratio: 1;
-  background-color: #EFF5F5;
+  background-color: #202020;
 }/*# sourceMappingURL=style.css.map */

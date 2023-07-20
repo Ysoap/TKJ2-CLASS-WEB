@@ -1,19 +1,24 @@
 $grey-light:#9BA4B5;
-$grey:#D6E4E5;
+$grey:#575757;
 $grey-darker:#EFF5F5;
-$grey-darkest:#497174;
+$grey-darkest:#171717;
 $orange : #EB6440;
 $white:#d6d6d6;
 body{
     background-color: $grey;
-    color: $grey-darkest;
+    color: $white;
 }
 header{
   z-index: 1;
   position: absolute;
     .container{
     background-color: $grey-darkest;}
-    color: $grey;
+    color: $grey-darker;
+}
+.humberger-toggle{
+  i{
+    color: white;
+  }
 }
  .close {
     transition: 0.3s;

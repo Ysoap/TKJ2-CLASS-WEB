@@ -1,15 +1,18 @@
 <?php
 session_start();
 $conn = mysqli_connect("localhost","root","","SISWA");
-if(isset($_COOKIE["id"]) && isset($_COOKIE["key"])){
-    $id = $_COOKIE["id"];
-    $key = $_COOKIE["key"];
+if(isset($_COOKIE["xxx"]) && isset($_COOKIE["zzz"])){
+    $id = $_COOKIE["xxx"];
+    $key = $_COOKIE["zzz"];
     $_cresult = mysqli_query($conn,"SELECT * FROM `login` WHERE id=$id");
     $c_row = mysqli_fetch_assoc($_cresult);
-
-    if ($key === hash("sha512",$c_row["user"]) ) {
+    
+    if ($key === hash("sha512",$c_row["username"]) ) {
+        $_SESSION['username-from-cookie'] = $c_row['username'];
         $_SESSION["login"] = true;
+        echo 'lmqde';
     }
+
 }
 // register
 function register(){
@@ -159,7 +162,8 @@ function login(){
         $password = $_POST["password_login"];
         $data_login = mysqli_query($conn,"SELECT * FROM `login` WHERE username='$username'");
         if (!$data_login) {
-            echo '<scrtipt> user tidak ditemukan </script>';
+            echo '<scrtipt> alert("user tidak ditemukan") </script>';
+            return false;
         }
         $result_data_login = mysqli_fetch_assoc($data_login);
         $password_db_fetch = $result_data_login['password'];
@@ -178,18 +182,30 @@ function login(){
             else{
                 $_SESSION["login"] = true;
                 $_SESSION['username-from-login'] = $username;
+                if(isset($_POST['remember'])){
+                    // xxx mean id
+                    setcookie('xxx', $result_data_login['id'], time() + (10 * 365 * 24 * 60 * 60),);
+                    // zzz mean username 
+                    setcookie('zzz', hash("sha512",$result_data_login['username'])  , time() + (10 * 365 * 24 * 60 * 60),);
+                }
                 header("Location: ../user/index.php");
+                exit;
             }
         }
+   
+        
      
 }
 //logout
 if(isset($_POST["logout-yes"])) {
     // $_SESSION['login'] = false;
+    setcookie('zzz', '', time() - (10 * 365 * 24 * 60 * 60), '/latihanphp1/pertemuan9/src/login');
+    setcookie('xxx', '', time() - (10 * 365 * 24 * 60 * 60), '/latihanphp1/pertemuan9/src/login');
     session_destroy();
     session_unset();
-    setcookie('id',false,time()-500000,"/");
-    setcookie('key',false,time()-500000,"/");
+    $_SESSION['login'] = false;
+    // setcookie('xxx',false,time()-500000,"/");
+    // setcookie('zzz',false,time()-500000,"/");
     header("Location: ../login/login.php");
     exit;
 }

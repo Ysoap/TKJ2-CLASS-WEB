@@ -54,7 +54,7 @@ $('#modalKeluar').on('submit', function (e) {
 });
 $('#tunggakan').on('submit', function (e) {
     console.log('kmsDD')
-    e.preventDefault()
+    e.preventDefault();
     e.stopPropagation();
     var formData = {
         value : $('#tunggakan #tunggakan-value').val(),
@@ -111,6 +111,7 @@ $('#surplus').on('submit', function (e) {
 $('#minus-tunggakan').on('submit', function (e) {
     console.log('kmsDD')
     e.preventDefault()
+    e.stopPropagation();
     var formData = {
         value : $('#minus-tunggakan-value').val(),
         id : $('#minus-tunggakan-id').val()

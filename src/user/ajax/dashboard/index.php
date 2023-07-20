@@ -10,6 +10,9 @@ if(isset($_SESSION['username-from-login'])){
 if(isset($_SESSION['username-from-register'])){
     $username = $_SESSION['username-from-register'];
 }
+if(isset($_SESSION['username-from-cookie'])){
+    $username = $_SESSION['username-from-cookie'];
+}
 $result = mysqli_query($conn,"SELECT * FROM `SISWA` WHERE username='$username'");
 $result_absensi = mysqli_query($conn ,"SELECT * FROM `absensi` WHERE username='$username'");
 $fetch = mysqli_fetch_assoc($result);

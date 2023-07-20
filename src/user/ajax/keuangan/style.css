@@ -1,10 +1,14 @@
 .main,
 .bulan-ini {
-  background-color: #497174;
+  background-color: #262626;
   width: 100%;
   margin-top: 5em !important;
   color: #D6E4E5;
   position: relative;
+}
+.main ::-webkit-scrollbar,
+.bulan-ini ::-webkit-scrollbar {
+  width: 10px;
 }
 .main .saldo,
 .bulan-ini .saldo {
@@ -30,7 +34,33 @@
   cursor: pointer;
 }
 
+.accordion {
+  border: none !important;
+}
+
 .accordion-container {
   max-height: 25em;
   overflow: overlay;
+  background-color: #262626 !important;
+}
+.accordion-container .accordion-button {
+  background-color: #111111 !important;
+  color: #D6E4E5;
+}
+
+.accordion-body {
+  background-color: #262626;
+}
+
+.accordion-item {
+  color: #D6E4E5 !important;
+}
+.accordion-item button {
+  background-color: #585858;
+  color: #D6E4E5;
+}
+
+.tunggakan,
+.surplus {
+  color: #D6E4E5;
 }/*# sourceMappingURL=style.css.map */

@@ -1,17 +1,14 @@
 $grey-light:#9BA4B5;
-$grey:#D6E4E5;
-$grey-darker:#EFF5F5;
+$grey:#575757;
+$grey-darker:#202020;
 $grey-darkest:#497174;
 $orange : #EB6440;
-$white:#d6d6d6;
+$white:#b8b8b8;
 body{
     background-color: $grey;
-    color: $grey-darkest;
+    color: $white;
 }
 header{
-    .container{
-    background-color: $grey-darkest;}
-    color: $grey;
 }
 .profile-picture{
     // width: 25em;

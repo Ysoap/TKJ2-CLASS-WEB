@@ -22,7 +22,7 @@ if($_SESSION['login'] == false){
     <script src="jquery-ui.min.js"></script>
     <script src="side.js"  defer></script>
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../main.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="side.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,9 +53,9 @@ if($_SESSION['login'] == false){
                data
               </span>
             </div>
-            <div class="img  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
-              <i class="bi bi-image-fill ms-3 fs-1"></i>
-              <span class="fs-2 nav-child-closed ms-3">image</span>
+            <div class="keuangan  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
+              <i class="bi bi-currency-dollar fs-1 ms-3"></i>
+              <span class="fs-2 nav-child-closed ms-3">Keuangan</span>
             </div>
             <div class="setting  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
             <i class="bi bi-gear-fill ms-3 fs-1"></i>
@@ -68,3 +68,5 @@ if($_SESSION['login'] == false){
     <footer>ajnjkchs</footer>
 </body>
 </html>
+
+
