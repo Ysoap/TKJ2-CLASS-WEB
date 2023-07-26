@@ -11,9 +11,6 @@ include 'data-var.php';
 <!-- tambah data -->
     <div class="tambah  d-flex justify-content-center justify-content-sm-between flex-sm-row flex-column ps-sm-5 pe-sm-5 gap-2">
                   <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah-data">
-          tambah data
-        </button>
         <!-- read -->
         <div class="searchbar-container d-flex bg-white rounded-5 border border-1 border-dark">
               <form method="post" action="">
@@ -72,21 +69,21 @@ include 'data-var.php';
     
       <div class="container-fluid p-5 ">
         <div class="row rounded data-container">
-            <div class="id  border rounded-start border-dark p-2 border-1 d-flex justify-content-center bg-dark-subtle">id</div>
-            <div class="nama col-2 border border-dark-subtle p-2 border-1 bg-white">NAMA</div>
-            <div class="kelas col-1 border border-dark-subtle p-2 border-1 bg-white">NISN</div>
-            <div class="noabsen col border border-dark-subtle p-2 border-1 bg-white">NO ABSEN</div>
-            <div class="umur col-1 border border-dark-subtle p-2 border-1 bg-white">TANGGAL LAHIR</div>
-            <div class="email col-2 border border-dark-subtle p-2 border-1 bg-white">ABSENSI</div>
-            <div class="nohp border border-dark-subtle p-2 border-1 bg-white">NO.HP</div>
-            <div class="alamat col-2 border border-dark-subtle p-2 border-1 bg-white">ALAMAT</div>
+            <div class="id rounded-start  p-2 d-flex justify-content-center">id</div>
+            <div class="nama col-2  p-2">NAMA</div>
+            <div class="kelas col-1  p-2">NISN</div>
+            <div class="noabsen col  p-2">NO ABSEN</div>
+            <div class="umur col-1  p-2">TANGGAL LAHIR</div>
+            <div class="email col-2  p-2">ABSENSI</div>
+            <div class="nohp  p-2">NO.HP</div>
+            <div class="alamat rounded-end col-2  p-2">ALAMAT</div>
       </div>
 <div class="outer-data-container">
     <?php foreach($siswa as $value): ?>
         <?php if(isset($_POST["yakin"])){
             echo "<h1>hLLO </h1>";             
         }?>
-        <div class="row rounded mb-4" id="row">
+        <div class="row rounded mb-4 mb-xl-1 p-xl-3" id="row">
           <div class="id rounded-start p-2 d-flex justify-content-center align-items-center"><?= $i ?></div>
           <div class="nama col-sm-2 align-items-center b">NAMA</div>
           <div class="nama col-sm-2 align-items-center p-2 "><?= $value["nama"]?></div>

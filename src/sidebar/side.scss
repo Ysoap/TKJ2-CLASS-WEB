@@ -1,6 +1,6 @@
 $grey-light:#9BA4B5;
 $grey:#575757;
-$grey-darker:#EFF5F5;
+$grey-darker:#111111;
 $grey-darkest:#171717;
 $orange : #EB6440;
 $white:#d6d6d6;
@@ -13,7 +13,7 @@ header{
   position: absolute;
     .container{
     background-color: $grey-darkest;}
-    color: $grey-darker;
+    color: $white;
 }
 .humberger-toggle{
   i{
@@ -31,7 +31,7 @@ transition: 0.3;
 }
 .sidebar {
   transition: 0.3s;
-  height: 37%;
+  height: 52%;
 }
 .sidebar-content-container :nth-child(3),
 .sidebar-content-container :nth-child(4),
@@ -73,6 +73,7 @@ transition: 0.3;
   opacity: 0%;
   transition: 0.3s;
 }
+.absensi-navbar span,
 .dashboard span,
 .data span,
 .keuangan span,
@@ -86,4 +87,11 @@ transition: 0.3;
 } */
 main{
   transition: .2s;
+  padding-bottom: 2em;
+}
+.modal{
+  color: black;
+}
+footer{
+  background-color: $grey-darkest;
 }

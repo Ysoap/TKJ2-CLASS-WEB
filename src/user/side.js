@@ -35,6 +35,18 @@ function addCloseClass(){
   )
 }
 $("#sidebar").on('click', function (event) {
+  if(event.target.closest('.absensi-navbar')){
+     $.get("ajax/absensi/index.php",
+      function (response) {
+        $('main').html(response)
+      })
+      $('head').append('<link rel="stylesheet" type="text/css" href="ajax/absensi/style.css">')
+      $('link[href="ajax/data/style.css"]').remove()
+      $('link[href="ajax/setting/style.css"]').remove()
+      $('link[href="ajax/keuangan/style.css"]').remove()
+      $('link[href="ajax/dashboard/style.css"]').remove()
+      addCloseClass()
+  }
   if(event.target.closest('.dashboard')){
      $.get("ajax/dashboard/index.php",
       function (response) {
@@ -49,6 +61,11 @@ $("#sidebar").on('click', function (event) {
       function (response) {
         $('main').html(response)
       })
+      $('link[href="ajax/data/style.css"]').remove()
+      $('link[href="ajax/dashboard/style.css"]').remove()
+      $('link[href="ajax/keuangan/style.css"]').remove()
+      $('link[href="ajax/absensi/style.css"]').remove()
+      $('head').append('<link rel="stylesheet" type="text/css" href="ajax/setting/style.css">')
       addCloseClass()
     }
     if(event.target.closest(".data")){
@@ -60,6 +77,10 @@ $("#sidebar").on('click', function (event) {
         });
         $('head').append('<link rel="stylesheet" type="text/css" href="ajax/data/style.css">')
         $('link[href="ajax/dashboard/style.css"]').remove()
+        $('link[href="ajax/keuangan/style.css"]').remove()
+        $('link[href="ajax/setting/style.css"]').remove()
+        $('link[href="ajax/absensi/style.css"]').remove()
+        $.getScript("ajax/data/script.js")
       })
       addCloseClass()
     }
@@ -68,6 +89,11 @@ $("#sidebar").on('click', function (event) {
         function (response) {
           $('main').html(response)
           $('head').append('<link rel="stylesheet" type="text/css" href="ajax/keuangan/style.css" />');
+          $('link[href="ajax/data/style.css"]').remove()
+          $('link[href="ajax/dashboard/style.css"]').remove()
+          $('link[href="ajax/setting/style.css"]').remove()
+          $('link[href="ajax/absensi/style.css"]').remove()
+          addCloseClass()
           // $.getScript("ajax/keuangan/script.js")
         }
       )
@@ -75,18 +101,19 @@ $("#sidebar").on('click', function (event) {
   }
   )
   $('main').on("click", function(event) {
-    if(event.target.closest(".dashboard-dashboard")){
-      if(event.target.closest(".dashboard-data")){
-        $.get("ajax/dashboard/index.php",
+      if(event.target.closest(".dashboard-absensi")){
+        $.get("ajax/absensi/index.php",
         function (response) {
           $('main').html(response)
+          $('head').append('<link rel="stylesheet" type="text/css" href="ajax/absensi/style.css">')
           $('link[href="ajax/data/style.css"]').remove()
           $('link[href="ajax/setting/style.css"]').remove()
           $('link[href="ajax/keuangan/style.css"]').remove()
+          $('link[href="ajax/dashboard/style.css"]').remove()
+          addCloseClass()
           }
         );
       }
-    }
     if(event.target.closest(".dashboard-data")){
       $.get("ajax/data/index.php",
       function (response) {
@@ -95,7 +122,9 @@ $("#sidebar").on('click', function (event) {
         $('link[href="ajax/dashboard/style.css"]').remove()
         $('link[href="ajax/keuangan/style.css"]').remove()
         $('link[href="ajax/setting/style.css"]').remove()
+        $('link[href="ajax/absensi/style.css"]').remove()
         $.getScript("ajax/data/script.js")
+        addCloseClass()
         }
       );
     }
@@ -107,6 +136,8 @@ $("#sidebar").on('click', function (event) {
           $('link[href="ajax/data/style.css"]').remove()
           $('link[href="ajax/dashboard/style.css"]').remove()
           $('link[href="ajax/setting/style.css"]').remove()
+          $('link[href="ajax/absensi/style.css"]').remove()
+          addCloseClass()
         }
       );
     }
@@ -118,6 +149,8 @@ $("#sidebar").on('click', function (event) {
           $('link[href="ajax/data/style.css"]').remove()
           $('link[href="ajax/dashboard/style.css"]').remove()
           $('link[href="ajax/keuangan/style.css"]').remove()
+          $('link[href="ajax/absensi/style.css"]').remove()
+          addCloseClass()
         }
       );
     }

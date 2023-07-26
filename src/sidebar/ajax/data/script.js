@@ -17,4 +17,14 @@ $(document).ready(function(){
     }
   })
 
+  $('#update-data').on('submit', function (e) {
+    $.get("ajax/data/index.php",
+    function (response) {
+      $('main').html(response)
+      $('head').append('<link rel="stylesheet" type="text/css" href="ajax/data/style.css">')
+      $('link[href="ajax/dashboard/style.css"]').remove()
+      $.getScript("ajax/data/script.js")
+      }
+    );
+});
 })

@@ -3,9 +3,11 @@
 require("../../../../koneksi.php")
 ?>
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Logout
-</button>
+<div class="container-fluid d-flex justify-content-center">
+    <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Logout
+    </button>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -36,16 +36,16 @@ include 'data-var.php';
                             <input type="text" class="form-control" id="name" placeholder="nama" name="nama">
                           </div>
                           <div class="mb-3">
-                            <label for="kelas" class="form-label">kelas</label>
-                            <input type="text"class="form-control" id="kelas" rows="1" name="kelas"></input>
+                            <label for="nisn" class="form-label">nisn </label>
+                            <input type="text"class="form-control" id="nisn" rows="1" name="kelas"></input>
                           </div>
                           <div class="mb-3">
                             <label for="noabsen" class="form-label">no absen</label>
                             <input type="text"class="form-control" id="noabsen" rows="1"name="noabsen"></input>
                           </div>
                           <div class="mb-3">
-                            <label for="umur" class="form-label">umur</label>
-                            <input type="text"class="form-control" id="umur" rows="1" name="umur"></input>
+                            <label for="tanggallahir" class="form-label">tanggal lahir</label>
+                            <input type="text"class="form-control" id="tanggallahir" rows="1" name="umur"></input>
                           </div>
                           <div class="mb-3">
                             <label for="email" class="form-label">email</label>
@@ -60,7 +60,7 @@ include 'data-var.php';
                             <textarea type="text"class="form-control" id="alamat" rows="1" name="alamat"></textarea>
                           </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer d-flex flex-column">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                           <button type="submit" class="btn btn-primary" name="submit-tambah">Save changes</button>
                         </div>
@@ -72,21 +72,21 @@ include 'data-var.php';
       <div class="container-fluid p-5 ">
         <div class="row rounded data-container">
             <div class="id  border rounded-start border-dark p-2 border-1 d-flex justify-content-center">id</div>
-            <div class="nama col-2 border border-dark-subtle p-2 border-1 ">NAMA</div>
-            <div class="kelas col-1 border border-dark-subtle p-2 border-1 ">NISN</div>
-            <div class="noabsen col border border-dark-subtle p-2 border-1 ">NO ABSEN</div>
-            <div class="umur col-1 border border-dark-subtle p-2 border-1 ">TANGGAL LAHIR</div>
-            <div class="email col-2 border border-dark-subtle p-2 border-1 ">ABSENSI</div>
-            <div class="nohp border border-dark-subtle p-2 border-1">NO.HP</div>
-            <div class="alamat col-2 border border-dark-subtle p-2 border-1 ">ALAMAT</div>
-            <div class="aksi col-1 rounded-end border border-dark-subtle p-2 border-1 ">AKSI</div>
+            <div class="nama col-2 p-2 ">NAMA</div>
+            <div class="kelas col-1 p-2 ">NISN</div>
+            <div class="noabsen col p-2 ">NO ABSEN</div>
+            <div class="umur col-1 p-2 ">TANGGAL LAHIR</div>
+            <div class="email col-2 p-2 ">EMAIL</div>
+            <div class="nohp p-2 border-1">NO.HP</div>
+            <div class="alamat col-2 p-2 ">ALAMAT</div>
+            <div class="aksi col-1 rounded-end p-2 ">AKSI</div>
       </div>
 <div class="outer-data-container">
     <?php foreach($siswa as $value): ?>
         <?php if(isset($_POST["yakin"])){
             echo "<h1>hLLO </h1>";             
         }?>
-        <div class="row rounded mb-4" id="row">
+        <div class="row rounded mb-4 pb-lg-2 pt-lg-2" id="row">
           <div class="id rounded-start p-2 d-flex justify-content-center align-items-center"><?= $i ?></div>
           <div class="nama col-sm-2 align-items-center">NAMA</div>
           <div class="nama col-sm-2 align-items-center p-2 "><?= $value["nama"]?></div>
@@ -97,7 +97,7 @@ include 'data-var.php';
           <div class="umur col-sm-1 align-items-center ">UMUR</div>
           <div class="umur col-sm-1 align-items-center p-2 "><?= $value["tanggal lahir"]?></div>
           <div class="email col-sm-2  align-items-center ">EMAIL</div>
-          <div class="email col-sm-2  align-items-center p-2 "><?= $value["absensi"]?></div>
+          <div class="email col-sm-2  align-items-center p-2 "><?= $value["email"]?></div>
           <div class="nohp align-items-center justify content-center ">NO.HP</div>
           <div class="nohp align-items-center justify content-center p-2 "><?= $value["no hp"]?></div>
           <div class="alamat col-sm-2 align-items-center">ALAMAT</div>
@@ -122,7 +122,7 @@ include 'data-var.php';
                         <h5 class="modal-title" id="exampleModalLabel">konfirmasi</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      <form action="koneksi.php" method="post">
+                      <form action="" method="post">
                         <input type="hidden" name="id" id="" value="<?= $value["id"]?>">
                         <div class="modal-body">
                           <span>Apakah Anda Yakin Menghapus Data Ini</span>
@@ -138,8 +138,8 @@ include 'data-var.php';
                   </div>
                 </div>
                 <!-- modal update -->
-                <form action="" method="post">
-                 <input type="hidden" name="id" id="" value="<?= $value['id']?>">
+                <form action="" method="post" id="update-data">
+                 <input type="hidden" name="id" id="update-data-id" value="<?= $value['id']?>">
               <!-- Modal -->
               <div class="modal fade" id="modalUpdate<?= $value["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -155,7 +155,7 @@ include 'data-var.php';
                       </div>
                       <div class="mb-3">
                         <label for="kelas" class="form-label">nisn</label>
-                        <input type="text"class="form-control" id="kelas" rows="1" name="nisn" value="<?= $value["nisn"]?>"></input>
+                        <input type="text"class="form-control" id="nisn" rows="1" name="nisn" value="<?= $value["nisn"]?>"></input>
                       </div>
                       <div class="mb-3">
                         <label for="noabsen" class="form-label">no absen</label>

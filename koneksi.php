@@ -69,7 +69,7 @@ function otp(){
                 $curl,
                 CURLOPT_HTTPHEADER,
                 array(
-                    "Authorization: DRVHa3T9LhkBQ!nJw9oV",
+                    "Authorization: bdVFI_ZIS9oDE50r1hGJ",
                 )
             );
             curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
@@ -125,7 +125,7 @@ function first_data_add(){
     $nisn = $_POST["nisn"];
     $noabsen = $_POST["noabsen"];
     $tanggallahir = $_POST["tanggallahir"];
-    $absensi = $_POST["absensi"];
+    $absensi = $_POST["email"];
     $nohp = $_POST["nohp"];
     $alamat = $_POST["alamat"];
 
@@ -147,7 +147,7 @@ function first_data_add(){
     }
     move_uploaded_file($tmp,'../../../img/profile-picture/'.$Profilepicturename);
     $username_input = $_SESSION['username-from-register'];
-    mysqli_query($conn, "INSERT INTO SISWA (id, nama, nisn, `no absen`, `tanggal lahir`, email, `no hp`, alamat, `profile-pic`, username) VALUES (NULL, '$nama', '$nisn', '$noabsen', '$tanggallahir', '$absensi', '$nohp', '$alamat','$Profilepicturename', '$username_input');");
+    mysqli_query($conn, "INSERT INTO SISWA (id, nama, nisn, `no absen`, `tanggal lahir`, email, `no hp`, alamat, `profile-pic`, username, tunggakan, `surplus kas`) VALUES (NULL, '$nama', '$nisn', '$noabsen', '$tanggallahir', '$absensi', '$nohp', '$alamat','$Profilepicturename', '$username_input',0,0);");
     $_SESSION["login"] = true;
     $_SESSION["nama"] = $nama;
     unset($_SESSION['password-from-register'] );
@@ -253,6 +253,7 @@ if (isset($_POST["submit-tambah"])) {
 if(isset($_POST['delete'])){
     $id = $_POST["id"];
     $hapus = mysqli_query($conn,"DELETE FROM SISWA WHERE id=$id");
+    // $hapus2 = mysqli_query($conn,"DELETE FROM ABSENSI WHERE id=$id");
     if($hapus){
         echo "<script>
                 alert('data berhasil dihapus');

@@ -183,8 +183,8 @@ if( $date === 1){
   </div>
 </div>
 <div class="main border border-1 border-dark" id="tunggakan">
-  <div class="header text-center bg-dark">Rincian Kas</div>
-  <div class="accordion  accordion-flush m-0 d-flex flex-column gap-2 bg-dark-subtle accordion-container ps-2 pe-2" id="">
+  <div class="header text-center bg-dark ">Rincian Kas</div>
+  <div class="accordion  accordion-flush m-0 d-flex flex-column gap-2 bg-dark-subtle accordion-container ps-2 pe-2 pb-3 pt-3" id="">
                   <!--  -->
                   <?php foreach($siswa as $value) :?>
                         <div class="accordion-item rounded rounded-2">

@@ -150,6 +150,9 @@ a {
   main{
     margin-left: 5em;
   }
+  footer{
+    position: absolute !important;
+  }
   
 }
 .searchbar-container{
@@ -168,4 +171,7 @@ a {
 .searchbar-container{
 height: 38px;
 overflow: hidden;
+}
+footer{
+  position: relative ;
 }

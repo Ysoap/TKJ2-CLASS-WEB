@@ -71,19 +71,33 @@ $("#sidebar").on('click', function (event) {
           $.getScript("ajax/keuangan/script.js")
         }
       );
+      addCloseClass()
+    }
+    if(event.target.closest(".absensi-navbar")){
+      $.get("ajax/absensi/index.php",
+        function (response) {
+          $('main').html(response)
+          $('head').append('<link rel="stylesheet" type="text/css" href="ajax/absensi/style.css" />');
+          $.getScript("ajax/absensi/script.js")
+        }
+      );
+      addCloseClass()
     }
 });
     $('main').on("click", function(event) {
-      if(event.target.closest(".dashboard-dashboard")){
-        if(event.target.closest(".dashboard-data")){
-          $.get("ajax/dashboard/index.php",
+      // if(event.target.closest(".dashboard-dashboard")){
+        if(event.target.closest(".dashboard-absensi")){
+          $.get("ajax/absensi/index.php",
           function (response) {
             $('main').html(response)
-            $('link[href="ajax/data/style.css"]').remove()
+            $('head').append('<link rel="stylesheet" type="text/css" href="ajax/absensi/style.css">')
+            $('link[href="ajax/dashboard/style.css"]').remove()
+            $.getScript("ajax/absensi/script.js")
+            addCloseClass()
             }
           );
         }
-      }
+      // }
       if(event.target.closest(".dashboard-data")){
         $.get("ajax/data/index.php",
         function (response) {
@@ -103,9 +117,20 @@ $("#sidebar").on('click', function (event) {
           }
         );
       }
-      if(event.target.closest(".dashboard-dashboard")){}
+      if(event.target.closest(".dashboard-setting")){
+        $.get("ajax/setting/index.php",
+          function (response) {
+            $('main').html(response)
+            $('head').append('<link rel="stylesheet" type="text/css" href="ajax/setting/style.css" />');
+            $('link[href="ajax/data/style.css"]').remove()
+            $('link[href="ajax/dashboard/style.css"]').remove()
+            $('link[href="ajax/keuangan/style.css"]').remove()
+          }
+        );
+      }
     
     });
+
 });
 // console.log('jhf')
 

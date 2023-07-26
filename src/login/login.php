@@ -20,6 +20,7 @@ if (isset($_POST["login"])) {
     <script src="jquery-3.6.4.min.js"></script>
     <script defer src="index.js"></script>
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container d-flex flex-column border border-2  justify-content-center align-items-center p-5">

@@ -71,15 +71,17 @@ if( $date === 1){
 ?>
 
 <div class="container w-xl-25">
-     <div class=" main border border-1 border-dark rounded rounded-2 ms-0">
+    <div class=" main border border-1 border-dark rounded rounded-2 ms-0">
         <div class="header top-02 justify-content-center d-flex bg-dark mb-4">
           <span>Bulan Ini</span>
         </div>
+
         <div class="main-contentbottom-0 w-100">
             <div class="saldo-kas d-flex flex-column mb-4 ms-lg-3 text-center text-lg-start">
               <span class="saldo-text">Saldo Kas:</span>
               <span class="saldo"><?= $latest_saldo?></span>
             </div>
+
             <div class="row w-100 border border-1 border-dark ms-0 masuk-keluar">
                 <div class="col border border-1 border-dark d-flex flex-column p-4 position-relative">
                     <i class="bi bi-plus-circle-fill position-absolute keluar-masuk "data-bs-toggle="modal" data-bs-target="#modalTambah"></i>
@@ -92,227 +94,227 @@ if( $date === 1){
                     <span class="keluar"><?= array_sum($latest_keluar_sum)?></span>
                 </div>
             </div>
+
             <div class="row w-100 border border-1 border-dark ms-0 masuk-keluar position-relative">
                 <div class="col-12 col-xl-6 border border-1 border-dark d-flex flex-column p-0">
                     <span class="bg-primary p-2 text-center">masuk</span>
                     <div class="accordion m-0 d-flex flex-column gap-2 bg-dark-subtle accordion-container" id="">
                     <?php foreach($masuk as $value) :?>
-                      <?php if($value['value'] != '0'):?>
+                        <?php if($value['value'] != '0'):?>
                             <div class="accordion-item ps-2 pe-2">
                                 <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button justify-content-between rounded rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
-                                    <span><?= $value['tanggal']?></span> 
-                                    <div class="perubahan-saldo position-absolute ">
-                                      <span class="">+<?= $value['value']?></span>
-                                      <span>--></span>
-                                      <span class=""><?= $value['sisa_saldo']?></span>
-                                    </div>
-                                </button>
+                                    <button class="accordion-button justify-content-between rounded rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
+                                        <span><?= $value['tanggal']?></span> 
+                                        <div class="perubahan-saldo position-absolute ">
+                                            <span class="">+<?= $value['value']?></span>
+                                            <span>--></span>
+                                            <span class=""><?= $value['sisa_saldo']?></span>
+                                        </div>
+                                    </button>
                                 </h2>
                                 <div id="<?= $value['id']?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body"><?= $value['deskripsi']?></div>
+                                    <div class="accordion-body"><?= $value['deskripsi']?></div>
                                 </div>
                             </div>
-                            <?php endif ?>
-                        <?php endforeach ?>
-                    </div>
-              </div>
-              <div class="col-12 col-xl-6 border border-1 border-dark d-flex flex-column p-0">
-                  <span class="bg-warning p-2 text-center">keluar</span>
-                  <div class="accordion m-0 d-flex flex-column gap-2 bg-dark-subtle accordion-container" id="">
-                  <!--  -->
-                  <?php foreach($keluar as $value) :?>
-                  <?php if($value['value'] != '0'):?>
-                  <div class="accordion m-0" id="accordionExample">
-                        <div class="accordion-item ps-2 pe-2">
-                            <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button  rounded rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
-                            <span><?= $value['tanggal']?></span> 
-                                    <div class="perubahan-saldo position-absolute ">
-                                      <span class="">-<?= $value['value']?></span>
-                                      <span>--></span>
-                                      <span class=""><?= $value['sisa_saldo']?></span>
-                                    </div>
-                            </button>
-                            </h2>
-                            <div id="<?= $value['id']?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body"><?= $value['deskripsi']?></div>
-                            </div>
-                        </div>
-                  </div>
-                  <?php endif ?>
-                  <?php endforeach ?>
-                  <!--  -->
-                  </div>
-              </div>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </div>
             </div>
-     </div>
+
+            <div class="col-12 col-xl-6 border border-1 border-dark d-flex flex-column p-0">
+                <span class="bg-warning p-2 text-center">keluar</span>
+                <div class="accordion m-0 d-flex flex-column gap-2 bg-dark-subtle accordion-container" id="">
+                    <?php foreach($keluar as $value) :?>
+                        <?php if($value['value'] != '0'):?>
+                            <div class="accordion-item ps-2 pe-2">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button  rounded rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
+                                        <span><?= $value['tanggal']?></span> 
+                                        <div class="perubahan-saldo position-absolute ">
+                                          <span class="">-<?= $value['value']?></span>
+                                          <span>--></span>
+                                          <span class=""><?= $value['sisa_saldo']?></span>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="<?= $value['id']?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body"><?= $value['deskripsi']?></div>
+                                </div>
+                            </div>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
+
+
 <!-- history -->
 <div class="main border border-1 border-dark" id="history">
-  <div class="header text-center bg-dark">History</div>
-  <div class="data-history m-2 d-flex flex-column gap-2 bg-white">
+    <div class="header text-center bg-dark">History</div>
+    <div class="data-history m-2 d-flex flex-column gap-2 bg-white">
     <?php foreach($passed_db as $key) : ?>
-      <?php if($key['value'] != '0'):?>
-        <div class="accordion m-0" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $key['id']?>" aria-expanded="true" aria-controls="collapseOne">
-                            <span><?= $key['tanggal']?></span> 
-                            <div class="perubahan-saldo position-absolute ">
-                            <span class="">+
-                              <?php 
-                              if($key['ket'] == 'masuk'){
-                                          echo '+';
-                                      }
-                                    else{
-                                      echo '-';
-                                    }
-                              ?>
-                            <?= $key['value']?></span>
-                            <span>--></span>
-                            <span class=""><?= $key['sisa_saldo']?></span>
-                            </div>  
+        <?php if($key['value'] != '0'):?>
+              <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $key['id']?>" aria-expanded="true" aria-controls="collapseOne">
+                          <span><?= $key['tanggal']?></span> 
+                          <div class="perubahan-saldo position-absolute ">
+                              <span class="">+
+                                  <?php 
+                                  if($key['ket'] == 'masuk'){
+                                              echo '+';
+                                          }
+                                        else{
+                                          echo '-';
+                                        }
+                                  ?>
+                              <?= $key['value']?></span>
+                              <span>--></span>
+                              <span class=""><?= $key['sisa_saldo']?></span>
+                          </div>  
                       </button>
-                </h2>
-                <div id="<?= $key['id']?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body"><?=$key['deskripsi']?></div>
-            </div>
-          </div>
-        </div>
-      <?php endif ?>
+                  </h2>
+                  <div id="<?= $key['id']?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body"><?=$key['deskripsi']?></div>
+                  </div>
+              </div>
+        <?php endif ?>
     <?php endforeach ?>
-  </div>
+    </div>
 </div>
+
+
+
 <div class="main border border-1 border-dark" id="tunggakan">
-  <div class="header text-center bg-dark">Rincian Kas</div>
-  <div class="accordion m-0 d-flex flex-column gap-2 bg-dark-subtle accordion-container m-2" id="">
+    <div class="header text-center bg-dark">Rincian Kas</div>
+    <div class="accordion m-0 d-flex flex-column gap-2 bg-dark-subtle accordion-container m-2" id="">
                   <!--  -->
-                  <?php foreach($siswa as $value) :?>
-                  <div class="accordion m-0 rounded rounded-2" id="accordionExample">
-                        <div class="accordion-item rounded rounded-2">
-                            <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
-                            <span><?= $value['nama']?></span> 
-                            </button>
-                            </h2>
-                            <div id="<?= $value['id']?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                              <div class="accordion-body d-flex justify-content-between">
-                                <div class="tunggakan d-flex gap-2">
-                                    <span>- <?= $value['tunggakan']?> </span>
-                                    <i class="bi bi-plus-circle-fill color-white" data-bs-toggle="modal" data-bs-target="#modal-tunggakan"></i>
-                                    <i class="bi bi-dash-circle-fill" data-bs-toggle="modal" data-bs-target="#modal-minus-tunggakan"></i>
-                                </div>
-                                <div class="surplus d-flex gap-2">
-                                    <span>+ <?= $value['surplus kas']?> </span>
-                                    <i class="bi bi-plus-circle-fill color-white" data-bs-toggle="modal" data-bs-target="#modal-surplus"></i>
-                                    <i class="bi bi-dash-circle-fill" data-bs-toggle="modal" data-bs-target="#modal-minus-surplus"></i>
-                                </div>
-                              </div>
-                            </div>
+        <?php foreach($siswa as $value) :?>
+            <div class="accordion-item rounded rounded-2">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $value['id']?>" aria-expanded="true" aria-controls="collapseOne">
+                        <span><?= $value['nama']?></span> 
+                    </button>
+                </h2>
+
+                <div id="<?= $value['id']?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body d-flex justify-content-between">
+                        <div class="tunggakan d-flex gap-2">
+                            <span>- <?= $value['tunggakan']?> </span>
+                            <i class="bi bi-plus-circle-fill color-white" data-bs-toggle="modal" data-bs-target="#modal-tunggakan<?= $value['id']?>"></i>
+                            <i class="bi bi-dash-circle-fill" data-bs-toggle="modal" data-bs-target="#modal-minus-tunggakan<?= $value['id']?>"></i>
                         </div>
-                  </div>
+                        <div class="surplus d-flex gap-2">
+                            <span>+ <?= $value['surplus kas']?> </span>
+                            <i class="bi bi-plus-circle-fill color-white" data-bs-toggle="modal" data-bs-target="#modal-surplus<?= $value['id']?>"></i>
+                            <i class="bi bi-dash-circle-fill" data-bs-toggle="modal" data-bs-target="#modal-minus-surplus<?= $value['id']?>"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
                    <!-- modal tunggakan -->
-                    <div class="modal fade" id="modal-tunggakan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Tunggakan</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>      
-                                <form action="" method="post" id="tunggakan">
-                                  <div class="modal-body">
-                                        <div class="mb-3">
-                                            <input type="hidden" value="<?= $value['id']?>" id="tunggakan-id" name="tunggakan-id">
-                                            <label for="kelas" class="form-label">Value</label>
-                                            <input type="number"class="form-control" id="tunggakan-value" rows="1" name="value"></input>
-                                        </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                      <button type="submit" class="btn btn-danger" name="submit">Submit</button>
-                                  </div>
-                                </form>
+            <div class="modal fade modal-tunggakan" id="modal-tunggakan<?= $value['id']?>" class="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Tambah Tunggakan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>      
+                        <form action="" method="post" id="tunggakan">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <input type="hidden" value="<?= $value['id']?>" id="tunggakan-id" name="tunggakan-id">
+                                    <label for="kelas" class="form-label">Value</label>
+                                    <input type="number"class="form-control" id="tunggakan-value" rows="1" name="value"></input>
+                                </div>
                             </div>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-danger" name="submit">Submit</button>
+                            </div>
+                        </form>
                     </div>
+                </div>
+            </div>
+
+              
                     <!-- modal surplus -->
-                    <div class="modal fade" id="modal-surplus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Surplus</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>      
-                                <form action="" method="post" id="surplus">
-                                  <div class="modal-body">
-                                        <div class="mb-3">
-                                           <input type="hidden" value="<?= $value['id']?>" id="surplus-id" name="surplus-id">
-                                            <label for="kelas" class="form-label">Value</label>
-                                            <input type="number"class="form-control" id="surplus-value" rows="1" name="value"></input>
-                                        </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                      <button type="submit" class="btn btn-danger" name="submit">Submit</button>
-                                  </div>
-                                </form>
+            <div class="modal fade modal-surplus" id="modal-surplus<?= $value['id']?>" class="modal-surplus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Tambah Surplus</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>      
+                        <form action="" method="post" id="surplus">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <input type="hidden" value="<?= $value['id']?>" id="surplus-id" name="surplus-id">
+                                    <label for="kelas" class="form-label">Value</label>
+                                    <input type="number"class="form-control" id="surplus-value" rows="1" name="value"></input>
+                                </div>
                             </div>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-danger" name="submit">Submit</button>
+                            </div>
+                        </form>
                     </div>
+                </div>
+            </div>
                      <!-- modal kurangi tunggakan -->
-                     <div class="modal fade" id="modal-minus-tunggakan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Kurangi Tunggakan</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>      
-                                <form action="" method="post" id="minus-tunggakan">
-                                  <div class="modal-body">
-                                        <div class="mb-3">
-                                            <input type="hidden" value="<?= $value['id']?>" id="minus-tunggakan-id" name="minus-tunggakan-id">
-                                            <label for="kelas" class="form-label">Value</label>
-                                            <input type="number"class="form-control" id="minus-tunggakan-value" rows="1" name="value"></input>
-                                        </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                      <button type="submit" class="btn btn-danger" name="submit">Submit</button>
-                                  </div>
-                                </form>
+            <div class="modal fade modal-minus-tunggakan" id="modal-minus-tunggakan<?= $value['id']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Kurangi Tunggakan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>      
+                        <form action="" method="post" id="minus-tunggakan">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <input type="hidden" value="<?= $value['id']?>" id="minus-tunggakan-id" name="minus-tunggakan-id">
+                                    <label for="kelas" class="form-label">Value</label>
+                                    <input type="number"class="form-control" id="minus-tunggakan-value" rows="1" name="value"></input>
+                                </div>
                             </div>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-danger" name="submit">Submit</button>
+                            </div>
+                        </form>
                     </div>
+                </div>
+            </div>
                      <!-- modal kurangi surplus -->
-                     <div class="modal fade" id="modal-minus-surplus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Kurangi Tunggakan</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>      
-                                <form action="" method="post" id="minus-surplus">
-                                  <div class="modal-body">
-                                        <div class="mb-3">
-                                            <input type="hidden" value="<?= $value['id']?>" id="minus-surplus-id" name="minus-surplus-id">
-                                            <label for="kelas" class="form-label">Value</label>
-                                            <input type="number"class="form-control" id="minus-surplus-value" rows="1" name="value"></input>
-                                        </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                      <button type="submit" class="btn btn-danger" name="submit">Submit</button>
-                                  </div>
-                                </form>
+            <div class="modal fade modal-minus-surplus" id="modal-minus-surplus<?= $value['id']?>" class="modal-minus-surplus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Kurangi Tunggakan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>      
+                        <form action="" method="post" id="minus-surplus">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <input type="hidden" value="<?= $value['id']?>" id="minus-surplus-id" name="minus-surplus-id">
+                                    <label for="kelas" class="form-label">Value</label>
+                                    <input type="number"class="form-control" id="minus-surplus-value" rows="1" name="value"></input>
+                                </div>
                             </div>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-danger" name="submit">Submit</button>
+                            </div>
+                        </form>
                     </div>
-                  <?php endforeach ?>
-                  <!--  -->
-                  </div>
-  
-</div>
+                </div>
+            </div>
+        <?php endforeach ?>
+    </div>
 </div>
 <!-- list tunggakan -->
 <!-- MODAL -->
@@ -371,5 +373,3 @@ if( $date === 1){
     </div>
 </div>
 
-
-<?= (int)date('m')?>

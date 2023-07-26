@@ -37,14 +37,14 @@ if($_SESSION['login'] == false){
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Karla:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="ajax/keuangan/style.css" />
 </head>
-<body>
+<body >
 <header class="">
       <div class="container sidebar position-fixed  top-0 shadow col p-0 close" id="sidebar">
         <div class="icon w-100 ms-0"></div>
         <button type="submit" class="humberger-toggle  d-sm-flex justify-content-center align-items-center h-10 ms-0 btn position-absolute end-0" id="humberger-toggle"><i class="bi bi-list fs-1 "></i></button>
         <div class="sidebar-content-container">
-            <div class="absensi w-100 ms-0 mb-2 d-flex align-items-center gap-2 ">
-              <i class="bi bi-person-fill fs-1 ms-3"></i>
+            <div class="dashboard w-100 ms-0 mb-2 d-flex align-items-center gap-2 ">
+              <i class="bi bi-speedometer2 fs-1 ms-3"></i>
               <span class="fs-2 nav-child-closed ms-3">Dashboard</span>
             </div>
             <div class="data  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
@@ -61,10 +61,17 @@ if($_SESSION['login'] == false){
             <i class="bi bi-gear-fill ms-3 fs-1"></i>
               <span class="fs-2 nav-child-closed ms-3">setting</span>
             </div>
+            <div class="absensi-navbar  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
+              <i class="bi bi-person-fill ms-3 fs-1"></i>
+              <span class="fs-2 nav-child-closed ms-3">absensi</span>
+            </div>
         </div>
       </div>
     </header>
-    <main class="open"></main>
+    <main class=""></main>
+    <footer class=' bottom-0 w-100 p-2'>
+      <span class="text-center w-100 d-block ">Made By M.Yusuf Fadila</span>
+    </footer>
 </body>
 </html>
 

@@ -52,12 +52,19 @@ if($_SESSION['login-admin'] == false){
               <span class="fs-2 nav-child-closed ms-3">Keuangan</span>
             </div>
             <div class="setting  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
-            <i class="bi bi-gear-fill ms-3 fs-1"></i>
+              <i class="bi bi-gear-fill ms-3 fs-1"></i>
               <span class="fs-2 nav-child-closed ms-3">setting</span>
+            </div>
+            <div class="absensi-navbar  w-100 ms-0 mb-2 d-flex align-items-center gap-2">
+              <i class="bi bi-person-fill ms-3 fs-1"></i>
+              <span class="fs-2 nav-child-closed ms-3">absensi</span>
             </div>
         </div>
       </div>
     </header>
     <main></main>
+    <footer class='bottom-0 w-100 p-2'>
+      <span class="text-center w-100 d-block ">Made By M.Yusuf Fadila</span>
+    </footer>
 </body>
 </html>

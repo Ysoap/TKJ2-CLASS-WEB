@@ -1,0 +1,19 @@
+.accordion {
+  color: #D6E4E5;
+}
+.accordion .accordion-button {
+  background-color: #111111 !important;
+  color: #D6E4E5;
+}
+.accordion .accordion-body {
+  color: #D6E4E5;
+  background-color: #262626;
+}
+
+.absensi-dashboard {
+  width: 100%;
+}
+
+footer {
+  position: absolute !important;
+}/*# sourceMappingURL=style.css.map */

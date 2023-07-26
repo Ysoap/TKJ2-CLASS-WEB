@@ -43,3 +43,40 @@ header{
             font-size: 6rem;
         }
 }
+footer{
+    position: relative !important;
+  }
+@media (min-width: 576px) {
+    .calendar{
+        aspect-ratio:16/9 !important;
+        background-color: $grey-darker;
+    }
+    .data-d{
+        aspect-ratio: 16/9 !important;
+        box-sizing: border-box;
+            background-color: $grey-darker;
+            i{
+                font-size: 6rem;
+            }
+    }
+    .profile-picture{
+        // width: 25em;
+        // height: 10vh;
+        // margin-top: 15vh;
+        // background-color: $grey-darkest;
+        // color: $white;
+        // border-color: $grey;
+        padding: 0px;
+        aspect-ratio:1;
+        overflow: hidden;
+        img{
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+    }
+    footer{
+        position: absolute !important;
+      }
+      
+    
+}

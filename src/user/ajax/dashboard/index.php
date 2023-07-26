@@ -33,8 +33,8 @@ $tanggallahir = $fetch['tanggal lahir']
    
     <div class="row calendar-container p-2 g-3 mt-5">
         <div class="col calendar rounded" id="calendar">
-            <div class="container absensi-container  p-3">
-                <div class="row border border-1 border-dark p-3">
+            <div class="container absensi-container  p-3 p-xl-5">
+                <div class="row border border-1 border-dark p-3 ps-xl-3 mb-xl-2">
                     <div class="col-4 col-md-2 col-sm-3 bg-white rounded-circle profile-picture">
                         <img src="../../img/profile-picture/<?= $Profile_Picture ?>" alt="" srcset="" class="w-100">
                     </div>
@@ -138,28 +138,27 @@ $tanggallahir = $fetch['tanggal lahir']
     </div>
     <div class="row g-3 row-cols-2 data-d-container ">
         <div class="data-d-container">
-            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-absensi">
+            <div class="col-sm-3 col col-lg-12 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-absensi">
                 <i class="bi bi-person-fill "></i>
-                <span class="icon-text">Dashboard</span>
+                <span class="icon-text">Absensi</span>
             </div>
         </div>
         <div class="data-d-container">
-            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-data">
+            <div class="col-sm-3 col col-lg-12 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-data">
                 <i class="bi bi-bar-chart-fill "></i>
                 <span class="icon-text">Data</span>
             </div>
         </div>
         <div class="data-d-container">
-            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-keuangan">
+            <div class="col-sm-3 col col-lg-12 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-keuangan">
                 <i class="bi bi-currency-dollar dashboard-keuangan"></i>
                 <span class="icon-text">Keuangan</span>
             </div>
         </div>
         <div class="data-d-container ">
-            <div class="col-sm-3 col col-lg-4 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-setting">
+            <div class="col-sm-3 col col-lg-12 data-d d-flex justify-content-center rounded flex-column align-items-center dashboard-setting">
                 <i class="bi bi-gear-fill "></i>
                 <span class="icon-text">Setting</span>
             </div>
         </div>
-      
 </div>

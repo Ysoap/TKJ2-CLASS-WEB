@@ -132,6 +132,10 @@ a {
     /* right: 0px; */
     display: none;
   }
+  .row :nth-child(16) {
+    display: flex !important;
+    flex-direction: column;
+  }
 }
 .dashboard {
   margin-top: 8em;
@@ -171,4 +175,8 @@ a {
 .searchbar-container {
   height: 38px;
   overflow: hidden;
+}
+
+footer {
+  position: relative !important;
 }/*# sourceMappingURL=style.css.map */

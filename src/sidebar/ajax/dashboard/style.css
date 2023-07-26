@@ -25,4 +25,36 @@ header body {
 .calendar {
   aspect-ratio: 1;
   background-color: #202020;
+}
+
+footer {
+  position: absolute !important;
+}
+
+@media (min-width: 576px) {
+  .calendar {
+    aspect-ratio: 16/9 !important;
+    background-color: #202020;
+  }
+  .data-d {
+    aspect-ratio: 16/9 !important;
+    box-sizing: border-box;
+    background-color: #202020;
+  }
+  .data-d i {
+    font-size: 6rem;
+  }
+  .profile-picture {
+    padding: 0px;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+  .profile-picture img {
+    aspect-ratio: 1;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  footer {
+    position: relative !important;
+  }
 }/*# sourceMappingURL=style.css.map */

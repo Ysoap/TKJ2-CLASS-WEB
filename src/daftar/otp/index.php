@@ -4,7 +4,7 @@ session_start();
 if(!isset($_SESSION['otp'])){
 header('Location: ../index.php');
 }
-    otp();
+otp();
 
 ?>
 

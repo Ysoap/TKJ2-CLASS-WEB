@@ -6,7 +6,7 @@ body {
 header {
   z-index: 1;
   position: absolute;
-  color: #EFF5F5;
+  color: #d6d6d6;
 }
 header .container {
   background-color: #171717;
@@ -29,7 +29,7 @@ header .container {
 
 .sidebar {
   transition: 0.3s;
-  height: 37%;
+  height: 52%;
 }
 
 .sidebar-content-container :nth-child(3),
@@ -75,6 +75,7 @@ header .container {
   transition: 0.3s;
 }
 
+.absensi-navbar span,
 .dashboard span,
 .data span,
 .keuangan span,
@@ -89,4 +90,13 @@ header .container {
 } */
 main {
   transition: 0.2s;
+  padding-bottom: 2em;
+}
+
+.modal {
+  color: black;
+}
+
+footer {
+  background-color: #171717;
 }/*# sourceMappingURL=side.css.map */

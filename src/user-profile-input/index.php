@@ -33,7 +33,7 @@ require("../../koneksi.php");
             <input type="text" name="tanggallahir" id="tanggallahir" >
             <label for="tanggallahir">TANGGAL LAHIR</label>
             <input type="text" name="absensi" id="absensi" >
-            <label for="absensi">ABSENSI</label>
+            <label for="absensi">EMAIL</label>
             <input type="number" name="nohp" id="nohp" >
             <label for="nohp">NO HP</label>
             <input type="text" name="alamat" id="alamat" >

@@ -1,0 +1,30 @@
+$grey-light:#585858;
+$grey:#D6E4E5;
+$grey-darker:#111111;
+$grey-darkest:#262626;
+$orange : #EB6440;
+$white:#d6d6d6;
+
+// .accordion-container{
+//     max-height: 25em;
+//     overflow: overlay;
+//     background-color: $grey-darkest !important;
+.accordion{
+color: $grey;
+
+    .accordion-button{
+        background-color: $grey-darker !important;
+        color: $grey;
+    }
+    .accordion-body{
+        color: $grey;
+        background-color: $grey-darkest;
+    }
+}
+.absensi-dashboard{
+    width: 100%;
+}
+footer{
+    position: absolute !important;
+}
+// }
